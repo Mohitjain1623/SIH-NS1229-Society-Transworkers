@@ -10,28 +10,27 @@ class MyDrawer extends StatelessWidget {
           DrawerHeader(
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [
-                        Colors.green,
-                        Colors.orange,
-                      ],
-                    ),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Colors.green,
+                      Colors.orange,
+                    ],
                   ),
+                ),
                 margin: EdgeInsets.zero,
-                accountName: Text("Sourabh Yadav",
-                  style: TextStyle(
-                      color: Colors.white
-                  ),),
-                accountEmail: Text("sourabhyadav564@gmail.com",
-                  style: TextStyle(
-                      color: Colors.white
-                  ),),
+                accountName: Text(
+                  "Sourabh Yadav",
+                  style: TextStyle(color: Colors.white),
+                ),
+                accountEmail: Text(
+                  "sourabhyadav564@gmail.com",
+                  style: TextStyle(color: Colors.white),
+                ),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage("assets/Flag_of_India.png"),
-
                 ),
               )),
           ListTile(

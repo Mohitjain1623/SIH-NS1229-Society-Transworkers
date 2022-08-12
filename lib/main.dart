@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pib_project/pages/homepage.dart';
 import 'package:pib_project/pages/loginpage.dart';
+import 'package:pib_project/pages/notificationpage.dart';
+import 'package:pib_project/pages/searchpage.dart';
 import 'package:pib_project/pages/signup.dart';
 import 'package:pib_project/pages/splashscreen.dart';
 import 'package:pib_project/routes.dart';
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.signupRoute: (context) => SignUpPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.notificationRoute: (context) => NotificationPage(),
+        MyRoutes.searchRoute: (context) => SearchPage(),
       },
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),

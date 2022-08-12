@@ -91,7 +91,8 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                       decoration: InputDecoration(
                           prefix: Text("+91 "),
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
                           hintText: "Enter Phone Number",
                           labelText: "Phone Number"),
                       validator: (String? value) {
@@ -128,7 +129,8 @@ class _LoginPageState extends State<LoginPage> {
                                 : Icons.visibility_off),
                             color: Colors.grey,
                           ),
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
                           hintText: "Enter Password",
                           labelText: "Password"),
                       validator: (String? value) {
@@ -187,11 +189,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     InkWell(
-                      onTap: () =>
-                          Navigator.pushReplacementNamed(context, MyRoutes.signupRoute),
+                      onTap: () => Navigator.pushReplacementNamed(
+                          context, MyRoutes.signupRoute),
                       child: Container(
-                        padding: EdgeInsets.fromLTRB(
-                            32.0, 10.0, 32.0, 10.0),
+                        padding: EdgeInsets.fromLTRB(32.0, 10.0, 32.0, 10.0),
                         decoration: BoxDecoration(
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.circular(20.0),

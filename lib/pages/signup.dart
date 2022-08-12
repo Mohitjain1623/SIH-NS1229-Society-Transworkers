@@ -91,7 +91,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       ],
                       decoration: InputDecoration(
                           prefix: Text("+91 "),
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40.0)
+                          ),
                           hintText: "Enter Phone Number",
                           labelText: "Phone Number"),
                       validator: (String? value) {
@@ -128,7 +130,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                 : Icons.visibility_off),
                             color: Colors.grey,
                           ),
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40.0)
+                          ),
                           hintText: "Enter Password",
                           labelText: "Password"),
                       validator: (String? value) {
@@ -157,7 +161,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                 : Icons.visibility_off),
                             color: Colors.grey,
                           ),
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40.0)
+                          ),
                           hintText: "Confirm Password",
                           labelText: "Re-Enter Password"),
                       validator: (String? value) {
