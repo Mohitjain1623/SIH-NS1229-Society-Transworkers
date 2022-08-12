@@ -5,12 +5,12 @@ import 'package:progress_state_button/iconed_button.dart';
 import 'package:progress_state_button/progress_button.dart';
 import '../routes.dart';
 
-class LoginPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   String number = "";
   String password = "";
   bool showPassword = true;
@@ -22,16 +22,16 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState!.validate()) {
       switch (stateTextWithIcon) {
         case ButtonState.idle:
-          setState(() {
+          setState(() async {
             stateTextWithIcon = ButtonState.loading;
-          });
-          await Future.delayed(Duration(milliseconds: 2000));
-          FocusScopeNode currentFocus = FocusScope.of(context);
-          currentFocus.unfocus();
-          stateTextWithIcon = ButtonState.success;
-          await Future.delayed(Duration(milliseconds: 1000));
-          await Navigator.pushReplacementNamed(context, MyRoutes.homeRoute);
-          setState(() {
+            number = "";
+
+            await Future.delayed(Duration(milliseconds: 2000));
+            FocusScopeNode currentFocus = FocusScope.of(context);
+            currentFocus.unfocus();
+            stateTextWithIcon = ButtonState.success;
+            await Future.delayed(Duration(milliseconds: 1000));
+            await Navigator.pushReplacementNamed(context, MyRoutes.homeRoute);
             stateTextWithIcon = ButtonState.idle;
           });
           break;
@@ -44,9 +44,9 @@ class _LoginPageState extends State<LoginPage> {
           stateTextWithIcon = ButtonState.idle;
           break;
       }
-      setState(() {
-        stateTextWithIcon = stateTextWithIcon;
-      });
+      // setState(() {
+      //   stateTextWithIcon = stateTextWithIcon;
+      // });
     }
   }
 
@@ -137,6 +137,37 @@ class _LoginPageState extends State<LoginPage> {
                         } else if (value.length < 6) {
                           return "Password should contain atleast 6 character";
                         }
+                        return null;
+                      },
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      obscureText: showPassword,
+                      decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                showPassword = !showPassword;
+                              });
+                            },
+                            icon: Icon(showPassword
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                            color: Colors.grey,
+                          ),
+                          border: OutlineInputBorder(),
+                          hintText: "Confirm Password",
+                          labelText: "Re-Enter Password"),
+                      validator: (String? value) {
+                        if (value!.isEmpty) {
+                          return "Password cannot be empty";
+                        } else if (value.length < 6) {
+                          return "Password should contain atleast 6 character";
+                        } else if (value != number) {
+                          return "Password should be same";
+                        }
                         password = value;
                         return null;
                       },
@@ -161,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                             icon:
                                 Icon(Icons.login_rounded, color: Colors.white),
                             color: Colors.black,
-                            text: "Login",
+                            text: "Sign Up",
                           ),
                           ButtonState.loading: IconedButton(
                             icon: Icon(Icons.arrow_forward),
@@ -188,15 +219,14 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     InkWell(
                       onTap: () =>
-                          Navigator.pushReplacementNamed(context, MyRoutes.signupRoute),
+                          Navigator.pushReplacementNamed(context, MyRoutes.loginRoute),
                       child: Container(
-                        padding: EdgeInsets.fromLTRB(
-                            32.0, 10.0, 32.0, 10.0),
+                        padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
                         decoration: BoxDecoration(
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.circular(20.0),
                         ),
-                        child: Text("Create new account",
+                        child: Text("Login",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,

@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Text('Press Information Bureau',
                 style: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     fontFamily: GoogleFonts.roboto().fontFamily)),
           ],
         ),

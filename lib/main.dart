@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pib_project/pages/homepage.dart';
 import 'package:pib_project/pages/loginpage.dart';
+import 'package:pib_project/pages/signup.dart';
 import 'package:pib_project/pages/splashscreen.dart';
 import 'package:pib_project/routes.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         // "/": (context) => SplashScreen(),
         MyRoutes.splashRoute: (context) => SplashScreen(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.signupRoute: (context) => SignUpPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
       },
       debugShowCheckedModeBanner: false,
