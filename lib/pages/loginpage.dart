@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
           currentFocus.unfocus();
           stateTextWithIcon = ButtonState.success;
           await Future.delayed(Duration(milliseconds: 1000));
-          await Navigator.pushReplacementNamed(context, MyRoutes.homeRoute);
+          await Navigator.pushReplacementNamed(context, MyRoutes.dashboardRoute);
           setState(() {
             stateTextWithIcon = ButtonState.idle;
           });

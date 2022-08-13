@@ -5,4 +5,6 @@ class MyRoutes {
   static String homeRoute = "/home";
   static String notificationRoute = "/notification";
   static String searchRoute = "/search";
+  static String dashboardRoute = "/dashboard";
+  static String accountRoute = "/account";
 }

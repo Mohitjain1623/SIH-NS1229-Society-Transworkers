@@ -24,18 +24,12 @@ class _SearchPageState extends State<SearchPage> {
                 top: true,
                 child: Row(
                   children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: Colors.black,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                    SizedBox(
+                      width: 20,
                     ),
                     Container(
                       height: 38,
-                      width: MediaQuery.of(context).size.width * 0.72,
+                      width: MediaQuery.of(context).size.width * 0.8,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
                         color: Colors.grey[300],
@@ -52,6 +46,7 @@ class _SearchPageState extends State<SearchPage> {
                           ),
                           Expanded(
                             child: TextFormField(
+                              cursorColor: Colors.black,
                               focusNode: searchFocusNode,
                               controller: searchController,
                               decoration: InputDecoration(
@@ -68,6 +63,15 @@ class _SearchPageState extends State<SearchPage> {
                                 color: Colors.black,
                                 fontFamily: GoogleFonts.roboto().fontFamily,
                               ),
+                              onChanged: (value) {
+                                setState(() {
+                                  searchController.text = value;
+                                  searchController.selection =
+                                      TextSelection.fromPosition(TextPosition(
+                                          offset:
+                                              searchController.text.length));
+                                });
+                              },
                             ),
                           ),
                         ],
@@ -76,11 +80,18 @@ class _SearchPageState extends State<SearchPage> {
                     IconButton(
                       onPressed: () {
                         searchController.clear();
+                        searchController.text = '';
+                        setState(() {});
                       },
-                      icon: Icon(
-                        Icons.cancel,
-                        color: Colors.black,
-                      ),
+                      icon: !searchController.text.isEmpty
+                          ? Icon(
+                              Icons.cancel,
+                              color: Colors.black,
+                            )
+                          : Icon(
+                              Icons.cancel,
+                              color: Colors.black45,
+                            ),
                     ),
                   ],
                 ),
