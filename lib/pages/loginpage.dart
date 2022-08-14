@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pib_project/util/dashboard.dart';
+import 'package:pib_project/util/staticDB.dart';
 import 'package:progress_state_button/iconed_button.dart';
 import 'package:progress_state_button/progress_button.dart';
 import '../routes.dart';
@@ -28,9 +30,17 @@ class _LoginPageState extends State<LoginPage> {
           await Future.delayed(Duration(milliseconds: 2000));
           FocusScopeNode currentFocus = FocusScope.of(context);
           currentFocus.unfocus();
-          stateTextWithIcon = ButtonState.success;
-          await Future.delayed(Duration(milliseconds: 1000));
-          await Navigator.pushReplacementNamed(context, MyRoutes.dashboardRoute);
+          if (number == StaticDB.data["users"][0]["phone"] &&
+              password == StaticDB.data["users"][0]["password"]) {
+            stateTextWithIcon = ButtonState.success;
+            await Future.delayed(Duration(milliseconds: 1000));
+            await Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => DashBoard()));
+          } else {
+            stateTextWithIcon = ButtonState.fail;
+            setState(() {});
+            await Future.delayed(Duration(milliseconds: 1000));
+          }
           setState(() {
             stateTextWithIcon = ButtonState.idle;
           });

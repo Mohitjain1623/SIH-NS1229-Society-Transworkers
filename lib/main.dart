@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:pib_project/pages/accountpage.dart';
 import 'package:pib_project/pages/homepage.dart';
 import 'package:pib_project/pages/loginpage.dart';
+import 'package:pib_project/pages/newsDetail.dart';
 import 'package:pib_project/pages/notificationpage.dart';
 import 'package:pib_project/pages/searchpage.dart';
 import 'package:pib_project/pages/signup.dart';
 import 'package:pib_project/pages/splashscreen.dart';
+import 'package:pib_project/pages/topnews.dart';
 import 'package:pib_project/routes.dart';
 import 'package:pib_project/util/dashboard.dart';
 
@@ -25,15 +27,14 @@ class MyApp extends StatelessWidget {
       ),
       // initialRoute: MyRoutes.splashRoute,
       routes: {
-        // "/": (context) => SplashScreen(),
         MyRoutes.splashRoute: (context) => SplashScreen(),
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.signupRoute: (context) => SignUpPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.notificationRoute: (context) => NotificationPage(),
         MyRoutes.searchRoute: (context) => SearchPage(),
-        MyRoutes.dashboardRoute: (context) => DashBoard(),
         MyRoutes.accountRoute: (context) => AccountPage(),
+        MyRoutes.topnewsRoute: (context) => TopNews(),
       },
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),

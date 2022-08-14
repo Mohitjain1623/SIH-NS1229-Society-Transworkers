@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pib_project/pages/newsDetail.dart';
+
+import '../util/staticDB.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({Key? key}) : super(key: key);
@@ -9,7 +12,7 @@ class NotificationPage extends StatefulWidget {
 }
 
 class _NotificationPageState extends State<NotificationPage> {
-  List notifications = [];
+  // List notifications = StaticDB.alerts['alerts'];
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class _NotificationPageState extends State<NotificationPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text('Notifications',
+        title: Text('Alerts',
             style: TextStyle(
                 fontSize: 20,
                 color: Colors.black,
@@ -25,7 +28,7 @@ class _NotificationPageState extends State<NotificationPage> {
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: notifications.isEmpty
+        child: StaticDB.alerts['alerts'].isEmpty
             ? Column(
                 children: [
                   Center(
@@ -41,7 +44,7 @@ class _NotificationPageState extends State<NotificationPage> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: const Text(
-                      "No notifications found",
+                      "No alerts found",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 20,
@@ -54,50 +57,52 @@ class _NotificationPageState extends State<NotificationPage> {
                 scrollDirection: Axis.vertical,
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: notifications.length,
+                itemCount: StaticDB.alerts['alerts'].length,
                 itemBuilder: (context, int index) {
                   return Dismissible(
-                    key: Key(notifications[index]["notificationId"]),
-                    // Provide a function that tells the app
-                    // what to do after an item has been swiped away.
-                    onDismissed: (direction) {
-                      print("Notification: " + notifications[index].toString());
-                      // Remove the item from the data source.
-                      setState(() {
-                        notifications.removeAt(index);
-                      });
-
-                      // Then show a snackbar.
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(
-                              "Notification deleted")));
-                    },
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ListTile(
-                            tileColor: Colors.white,
-                            minVerticalPadding: 10,
-                            isThreeLine: true,
-                            leading: SizedBox(
-                              width: 50,
-                              child: Center(
+                      key: Key(StaticDB.alerts['alerts'][index]['id']),
+                      onDismissed: (direction) {
+                        setState(() {
+                          StaticDB.alerts['alerts'].removeAt(index);
+                        });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Notification deleted")));
+                      },
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              tileColor: Colors.white,
+                              minVerticalPadding: 10,
+                              leading: CircleAvatar(
+                                backgroundColor: Colors.white,
                                 child: Icon(
                                   Icons.notifications,
                                   color: Colors.black,
                                 ),
                               ),
+                              title: Text(
+                                StaticDB.alerts['alerts'][index]['title'],
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            NewsDetail(index: index)));
+                              },
                             ),
-                            title: Text("Notification"),
                           ),
-                        ),
-                        const Divider(
-                          height: 1,
-                        )
-                      ],
-                    ),
-                  );
+                          const Divider(
+                            height: 1,
+                          )
+                        ],
+                      ));
                 },
               ),
       ),

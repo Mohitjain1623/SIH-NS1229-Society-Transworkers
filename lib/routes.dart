@@ -7,4 +7,6 @@ class MyRoutes {
   static String searchRoute = "/search";
   static String dashboardRoute = "/dashboard";
   static String accountRoute = "/account";
+  static String topnewsRoute = "/topnews";
+  static String newsDetailRoute = "/newsdetail";
 }
