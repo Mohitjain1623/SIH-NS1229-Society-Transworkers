@@ -6,6 +6,7 @@ import 'package:pib_project/util/staticDB.dart';
 import 'package:progress_state_button/iconed_button.dart';
 import 'package:progress_state_button/progress_button.dart';
 import '../routes.dart';
+import '../util/Constants.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -33,6 +34,11 @@ class _LoginPageState extends State<LoginPage> {
           if (number == StaticDB.data["users"][0]["phone"] &&
               password == StaticDB.data["users"][0]["password"]) {
             stateTextWithIcon = ButtonState.success;
+            Constants.setUserData(
+              true,
+              number,
+              StaticDB.data["users"][0]["name"],
+            );
             await Future.delayed(Duration(milliseconds: 1000));
             await Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => DashBoard()));

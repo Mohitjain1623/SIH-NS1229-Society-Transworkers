@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+// import 'package:webview_flutter/webview_flutter.dart';
 import '../util/staticDB.dart';
 
 class NewsDetail extends StatefulWidget {
   final int index;
+
   const NewsDetail({Key? key, required this.index}) : super(key: key);
 
   @override
@@ -13,10 +14,12 @@ class NewsDetail extends StatefulWidget {
 
 class _NewsDetailState extends State<NewsDetail> {
   int index = 0;
+  var url = "";
 
   @override
   void initState() {
     index = widget.index;
+    url = StaticDB.data2['rss']["channel"]["item"][index]['link'];
     super.initState();
   }
 
@@ -32,7 +35,7 @@ class _NewsDetailState extends State<NewsDetail> {
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: Text(StaticDB.news['news'][index]['title'],
+        title: Text("Top News",
             style: TextStyle(
                 fontSize: 20,
                 color: Colors.black,
@@ -59,7 +62,7 @@ class _NewsDetailState extends State<NewsDetail> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        StaticDB.news['news'][index]['subtitle'],
+                        StaticDB.data2['rss']["channel"]["item"][index]['title'],
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -85,6 +88,25 @@ class _NewsDetailState extends State<NewsDetail> {
           ],
         ),
       ),
+
+      // body: Container(
+      //   height: MediaQuery.of(context).size.height / 1.3,
+      //   decoration: const BoxDecoration(
+      //     color: Colors.red,
+      //   ),
+      //   child: ListView.builder(
+      //       scrollDirection: Axis.vertical,
+      //       physics: const ScrollPhysics(),
+      //       shrinkWrap: true,
+      //       itemCount: 1,
+      //       itemBuilder: (context, int index) {
+      //         return Container(
+      //           padding: const EdgeInsets.only(top: 20),
+      //           height: MediaQuery.of(context).size.height * 2,
+      //           child: WebView(initialUrl: url),
+      //         );
+      //       }),
+      // ),
     );
   }
 }

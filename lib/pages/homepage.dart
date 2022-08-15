@@ -1,5 +1,8 @@
+import 'dart:io';
+import 'package:http/io_client.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:webfeed/webfeed.dart';
 import '../routes.dart';
 import '../util/staticDB.dart';
 import 'newsDetail.dart';
@@ -12,18 +15,30 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void start() async {
+    final client = IOClient(HttpClient()
+      ..badCertificateCallback =
+          ((X509Certificate cert, String host, int port) => true));
+
+    var response = await client.get(Uri.parse(
+        'https://www.pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3.rss'));
+    print(response);
+    // var channel = RssFeed.parse(response.body);
+    // print(channel);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   centerTitle: true,
-      //   title: Text('Home Page',
-      //       style: TextStyle(
-      //           fontSize: 20,
-      //           color: Colors.black,
-      //           fontFamily: GoogleFonts.roboto().fontFamily)),
-      // ),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text('Press Information Bureau',
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+                fontFamily: GoogleFonts.roboto().fontFamily)),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         top: true,
@@ -68,21 +83,26 @@ class _HomePageState extends State<HomePage> {
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
-                                elevation: 15,
+                                elevation: 5,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Hero(
                                       tag: StaticDB.news['news'][index]['id'],
-                                      child: Image.asset('assets/aazadi-ka-mahotsav.png',
-                                          height:
-                                              MediaQuery.of(context).size.height *
-                                                  0.1),
+                                      child: Image.asset(
+                                          'assets/aazadi-ka-mahotsav.png',
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.05,),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        StaticDB.news['news'][index]['title'],
+                                        StaticDB.data2['rss']["channel"]["item"][index]['title'],
+                                        softWrap: true,
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 3,
                                         style: TextStyle(
                                             fontSize: 17,
                                             fontFamily: GoogleFonts.roboto()
@@ -100,9 +120,10 @@ class _HomePageState extends State<HomePage> {
                             child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
-                                elevation: 15,
+                                elevation: 5,
                                 child: InkWell(
                                   onTap: () {
+                                    start();
                                     Navigator.pushNamed(
                                         context, MyRoutes.topnewsRoute);
                                   },

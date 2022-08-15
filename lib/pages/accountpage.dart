@@ -1,12 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+SharedPreferences prefs = SharedPreferences.getInstance() as SharedPreferences;
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
 
   @override
   State<AccountPage> createState() => _AccountPageState();
+}
+
+String userName = "";
+String userNumber = "";
+
+checkUserLoggedIn() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  if (prefs.getBool('isLoggedIn') == true) {
+    userName = prefs.getString('username')!;
+    userNumber = prefs.getString('userNumber')!;
+    print(userName);
+    return true;
+  } else {
+    return false;
+    userName = "Enter UserName";
+    userNumber = "Enter UserNumber";
+  }
 }
 
 class _AccountPageState extends State<AccountPage> {
@@ -27,17 +47,15 @@ class _AccountPageState extends State<AccountPage> {
               ),
             ),
             margin: EdgeInsets.zero,
-            child: Column(
-              children:[
-                Padding(
-                  padding: const EdgeInsets.all(45.0),
-                  child: CircleAvatar(
-                    radius: 60,
-                      backgroundImage: AssetImage('assets/Flag_of_India.png'),
-                  ),
+            child: Column(children: [
+              Padding(
+                padding: const EdgeInsets.all(45.0),
+                child: CircleAvatar(
+                  radius: 60,
+                  backgroundImage: AssetImage('assets/Flag_of_India.png'),
                 ),
-              ]
-            ),
+              ),
+            ]),
           ),
           SizedBox(
             height: 20,
@@ -47,12 +65,15 @@ class _AccountPageState extends State<AccountPage> {
             title: TextFormField(
               enabled: true,
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(45),
-                ),
-                icon: Icon(CupertinoIcons.profile_circled, color: Colors.black,size: 30,),
-                  hintText: "Enter Username",
-                  labelText: "Username"),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(45),
+                  ),
+                  icon: Icon(
+                    CupertinoIcons.profile_circled,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  labelText: userName),
               style: TextStyle(
                 color: Colors.black,
               ),
@@ -63,11 +84,16 @@ class _AccountPageState extends State<AccountPage> {
             title: TextFormField(
               enabled: false,
               decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(45),
-                  ),
-                  icon: Icon(CupertinoIcons.phone_circle, color: Colors.black,size: 30,),
-                  hintText: "9999999999",),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(45),
+                ),
+                icon: Icon(
+                  CupertinoIcons.phone_circle,
+                  color: Colors.black,
+                  size: 30,
+                ),
+                hintText: userNumber,
+              ),
               style: TextStyle(
                 color: Colors.black26,
               ),
@@ -102,7 +128,6 @@ class _AccountPageState extends State<AccountPage> {
           )
         ],
       ),
-
     );
   }
 }

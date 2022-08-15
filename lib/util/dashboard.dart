@@ -25,6 +25,12 @@ class DashBoardState extends State<DashBoard> {
   late int _selectedIndex = 0;
 
   @override
+  void initState() {
+    checkUserLoggedIn();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
     return Scaffold(

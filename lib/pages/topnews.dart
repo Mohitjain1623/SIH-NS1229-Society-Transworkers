@@ -77,7 +77,7 @@ class _TopNewsState extends State<TopNews> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    StaticDB.news['news'][index]['title'],
+                                    StaticDB.data2['rss']["channel"]["item"][index]['title'],
                                     style: TextStyle(
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold,
@@ -86,20 +86,20 @@ class _TopNewsState extends State<TopNews> {
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  StaticDB.news['news'][index]
-                                      ['subtitle'],
-                                  softWrap: true,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 5,
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontFamily:
-                                          GoogleFonts.roboto().fontFamily),
-                                ),
-                              ),
+                              // Padding(
+                              //   padding: const EdgeInsets.all(8.0),
+                              //   child: Text(
+                              //     StaticDB.news['news'][index]
+                              //         ['subtitle'],
+                              //     softWrap: true,
+                              //     overflow: TextOverflow.ellipsis,
+                              //     maxLines: 5,
+                              //     style: TextStyle(
+                              //         fontSize: 10,
+                              //         fontFamily:
+                              //             GoogleFonts.roboto().fontFamily),
+                              //   ),
+                              // ),
                             ],
                           ),
                         ),
