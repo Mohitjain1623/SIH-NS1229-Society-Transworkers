@@ -49,7 +49,7 @@ class _TopNewsState extends State<TopNews> {
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.3,
+                      height: MediaQuery.of(context).size.height * 0.2,
                       child: Card(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
@@ -57,27 +57,27 @@ class _TopNewsState extends State<TopNews> {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.9,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: Colors.grey[200]),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Hero(
-                                    tag: StaticDB.news['news'][index]['id'],
-                                    child: Image.asset(
-                                        'assets/aazadi-ka-mahotsav.png',
-                                        height:
-                                            MediaQuery.of(context).size.height * 0.1,),
-                                  ),
-                                ),
-                              ),
+                              // Container(
+                              //   width: MediaQuery.of(context).size.width * 0.9,
+                              //   decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(20),
+                              //       color: Colors.grey[200]),
+                              //   child: Padding(
+                              //     padding: const EdgeInsets.all(8.0),
+                              //     child: Hero(
+                              //       tag: StaticDB.news['news'][index]['id'],
+                              //       child: Image.asset(
+                              //           'assets/aazadi-ka-mahotsav.png',
+                              //           height:
+                              //               MediaQuery.of(context).size.height * 0.1,),
+                              //     ),
+                              //   ),
+                              // ),
                               Center(
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(15.0),
                                   child: Text(
-                                    StaticDB.data2['rss']["channel"]["item"][index]['title'],
+                                    StaticDB.pressRelease['rss']["channel"]["item"][index]['title'],
                                     style: TextStyle(
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold,
