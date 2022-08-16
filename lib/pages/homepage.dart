@@ -5,12 +5,10 @@ import 'package:http/io_client.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pib_project/pages/bookletdetailpage.dart';
+import 'package:pib_project/pages/imagepage.dart';
 import 'package:pib_project/pages/topnews.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
-
-// import 'package:webfeed/webfeed.dart';
-import '../routes.dart';
 import '../util/showimage.dart';
 import '../util/staticDB.dart';
 import 'newsDetail.dart';
@@ -23,17 +21,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  void start() async {
-    final client = IOClient(HttpClient()
-      ..badCertificateCallback =
-          ((X509Certificate cert, String host, int port) => true));
-
-    var response = await client.get(Uri.parse(
-        'https://www.pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3.rss'));
-    print(response);
-    // var channel = RssFeed.parse(response.body);
-    // print(channel);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,24 +57,24 @@ class _HomePageState extends State<HomePage> {
                             fontFamily: GoogleFonts.roboto().fontFamily)),
                   ),
                 ),
-                // InkWell(
-                //   onTap: (){
-                //
-                //   },
-                //   child: Container(
-                //     alignment: Alignment.centerLeft,
-                //     child: Padding(
-                //       padding: const EdgeInsets.all(8.0),
-                //       child: Text("Show All",
-                //           style: TextStyle(
-                //               fontSize: 14,
-                //               color: Colors.blue,
-                //               fontWeight: FontWeight.w400,
-                //               decoration: TextDecoration.underline,
-                //               fontFamily: GoogleFonts.roboto().fontFamily)),
-                //     ),
-                //   ),
-                // ),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ImagePage()));
+                  },
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Show All",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w400,
+                              decoration: TextDecoration.underline,
+                              fontFamily: GoogleFonts.roboto().fontFamily)),
+                    ),
+                  ),
+                ),
               ],
             ),
             SizedBox(
