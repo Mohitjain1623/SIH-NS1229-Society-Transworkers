@@ -6,13 +6,23 @@ import '../util/staticDB.dart';
 import 'newsDetail.dart';
 
 class TopNews extends StatefulWidget {
-  const TopNews({Key? key}) : super(key: key);
+  final String type;
+
+  const TopNews({Key? key, required this.type}) : super(key: key);
 
   @override
   State<TopNews> createState() => _TopNewsState();
 }
 
 class _TopNewsState extends State<TopNews> {
+  String type = "";
+
+  @override
+  void initState() {
+    type = widget.type;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +35,7 @@ class _TopNewsState extends State<TopNews> {
         ),
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text('Top News',
+        title: Text(type,
             style: TextStyle(
                 fontSize: 20,
                 color: Colors.black,
@@ -41,21 +51,30 @@ class _TopNewsState extends State<TopNews> {
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 padding: const EdgeInsets.only(left: 15),
-                itemCount: StaticDB.news['news'].length,
+                itemCount: StaticDB.releaseAug[type].length,
                 itemBuilder: (context, int index) {
                   return InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => NewsDetail(index: index)));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NewsDetail(
+                                    index: index,
+                                    type: type,
+                                  )));
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.25,
                       child: Card(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         elevation: 15,
                         child: SingleChildScrollView(
                           child: Column(
+                            verticalDirection: VerticalDirection.down,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               // Container(
                               //   width: MediaQuery.of(context).size.width * 0.9,
@@ -77,13 +96,25 @@ class _TopNewsState extends State<TopNews> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(15.0),
                                   child: Text(
-                                    StaticDB.pressRelease['rss']["channel"]["item"][index]['title'],
+                                    StaticDB.releaseAug[type][index]['title'],
                                     style: TextStyle(
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold,
                                         fontFamily:
-                                        GoogleFonts.roboto().fontFamily),
+                                            GoogleFonts.roboto().fontFamily),
                                   ),
+                                ),
+                              ),
+                              Divider(),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  StaticDB.releaseAug[type][index]['date'],
+                                  softWrap: true,
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      fontFamily: GoogleFonts.roboto()
+                                          .fontFamily),
                                 ),
                               ),
                               // Padding(

@@ -94,7 +94,7 @@ class _NotificationPageState extends State<NotificationPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            NewsDetail(index: index)));
+                                            NewsDetail(index: index, type: "",)));
                               },
                             ),
                           ),

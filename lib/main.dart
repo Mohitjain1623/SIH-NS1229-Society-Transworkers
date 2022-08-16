@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.notificationRoute: (context) => NotificationPage(),
         MyRoutes.searchRoute: (context) => SearchPage(),
         MyRoutes.accountRoute: (context) => AccountPage(),
-        MyRoutes.topnewsRoute: (context) => TopNews(),
+        // MyRoutes.topnewsRoute: (context) => TopNews(),
       },
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),

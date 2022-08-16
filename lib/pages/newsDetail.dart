@@ -5,8 +5,10 @@ import '../util/staticDB.dart';
 
 class NewsDetail extends StatefulWidget {
   final int index;
+  final String type;
 
-  const NewsDetail({Key? key, required this.index}) : super(key: key);
+  const NewsDetail({Key? key, required this.index, required this.type})
+      : super(key: key);
 
   @override
   State<NewsDetail> createState() => _NewsDetailState();
@@ -15,11 +17,13 @@ class NewsDetail extends StatefulWidget {
 class _NewsDetailState extends State<NewsDetail> {
   int index = 0;
   var url = "";
+  String type = "";
 
   @override
   void initState() {
     index = widget.index;
-    url = StaticDB.pressRelease['rss']["channel"]["item"][index]['link'];
+    type = widget.type;
+    url = StaticDB.releaseAug[type][index]['releaseURL'];
     super.initState();
   }
 
@@ -42,78 +46,29 @@ class _NewsDetailState extends State<NewsDetail> {
                 fontFamily: GoogleFonts.roboto().fontFamily)),
       ),
       backgroundColor: Colors.white,
-      // body: Container(
-      //   child: Column(
-      //     children: [
-      //       SingleChildScrollView(
-      //         child: Column(
-      //           children: [
-      //             Padding(
-      //               padding: const EdgeInsets.all(8.0),
-      //               child: Hero(
-      //                 tag: StaticDB.news['news'][index]['id'],
-      //                 child: Image.asset(
-      //                   'assets/aazadi-ka-mahotsav.png',
-      //                   fit: BoxFit.cover,
-      //                 ),
-      //               ),
-      //             ),
-      //             Center(
-      //               child: Padding(
-      //                 padding: const EdgeInsets.all(8.0),
-      //                 child: Text(
-      //                   StaticDB.data2['rss']["channel"]["item"][index]['title'],
-      //                   style: TextStyle(
-      //                       fontSize: 20,
-      //                       fontWeight: FontWeight.bold,
-      //                       fontFamily: GoogleFonts.roboto().fontFamily),
-      //                 ),
-      //               ),
-      //             ),
-      //             Padding(
-      //               padding: const EdgeInsets.all(8.0),
-      //               child: Text(
-      //                 StaticDB.news['news'][index]['description'],
-      //                 softWrap: true,
-      //                 overflow: TextOverflow.ellipsis,
-      //                 maxLines: 5,
-      //                 style: TextStyle(
-      //                     fontSize: 18,
-      //                     fontFamily: GoogleFonts.roboto().fontFamily),
-      //               ),
-      //             ),
-      //           ],
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // ),
-
-      body: Container(
-        height: MediaQuery.of(context).size.height / 1.3,
-        child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            physics: const ScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 1,
-            itemBuilder: (context, int index) {
-              return Container(
-                padding: const EdgeInsets.only(top: 20),
-                height: MediaQuery.of(context).size.height * 2,
-                child: WebView(initialUrl: url,
-                    javascriptMode: JavascriptMode.unrestricted,
-                    onWebViewCreated: (WebViewController webViewController) {
-                      webViewController.loadUrl(url);
-                      return setState(() {
-                        CircularProgressIndicator(
-                          backgroundColor: Colors.blue,
-                        );
-                      });
-                    },
-                  zoomEnabled: true,
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              physics: const ScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 1,
+              itemBuilder: (context, int index) {
+                return Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    height: MediaQuery.of(context).size.height * 50,
+                    child: WebView(
+                      initialUrl: url,
+                      javascriptMode: JavascriptMode.unrestricted,
+                      userAgent:
+                          'Mozilla/5.0 (Linux; Android 8.1.0; Pixel Build/OPM1.171019.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36',
+                    ),
                   ),
-              );
-            }),
+                );
+              }),
+        ),
       ),
     );
   }
