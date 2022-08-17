@@ -1,10 +1,17 @@
 import React from 'react';  
 import './App.css';
+import axio from "axios";
+
 import Sidebar from './Component/Sidebar';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import AdminProfile from "./Component/Admin_Profile";
 import AllReleases from "./Component/All_Releases";
 import Users from "./Component/User";
+import Photos from "./Component/ManagePhotos";
+import Ebooks from "./Component/ManageEbooks";
+import Infographic from "./Component/ManageInfographic";
+import Videos from "./Component/ManageVideos";
+import Webcast from "./Component/ManageWebcast";
 
 
 function App() {
@@ -24,6 +31,11 @@ function App() {
           <Route path="/" element={<AdminProfile/>}/>
           <Route path="/allreleases" element={<AllReleases/>}/>
           <Route path="/users" element={<Users/>}/>
+          <Route path="/photos" element={<Photos/> }/>
+          <Route path="/ebooklets" element={<Ebooks/>}/>
+          <Route path="/infographic" element={<Infographic/> }/>
+          <Route path="/videos" element={<Videos/> }/>
+          <Route path="/webcast" element={<Webcast/> }/>
         </Routes>
         </div>  
         </div>

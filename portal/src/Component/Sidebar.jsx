@@ -15,7 +15,7 @@ function Sidebar() {
             <table>
                 <tr>
                     <td>
-                        <Link to='/' className=''><img src="https://cdn-icons.flaticon.com/png/512/4871/premium/4871351.png?token=exp=1660060605~hmac=fa1fa0209175b0a91468d3d525b38256" alt="admin"  className='w-8 mx-2 my-2'/></Link>
+                        <Link to='/' className=''><img src=" https://cdn-icons-png.flaticon.com/512/7542/7542296.png" alt="admin"  className='w-8 mx-2 my-2'/></Link>
                     </td>
 
                     <td> <Link to='/'><span className="self-center">  Admin Profile</span></Link></td>
@@ -34,6 +34,58 @@ function Sidebar() {
                     </td>
 
                     <td> <Link to='/users'><span className="self-center">  Users</span></Link></td>
+                </tr>
+
+
+            {/* gallery photos */}
+                <tr>
+                    <td>
+                        <Link to='/photos' className=''><img src="https://cdn-icons-png.flaticon.com/512/833/833281.png" alt="users"  className='w-8 my-2 mx-2'/></Link>
+                    </td>
+
+                    <td> <Link to='/photos'><span className="self-center">  Photos</span></Link></td>
+                </tr>
+
+                {/*gallery ebooklets  */}
+
+                <tr>
+                    <td>
+                        <Link to='/ebooklets' className=''><img src="https://cdn-icons-png.flaticon.com/512/1945/1945891.png" alt="users"  className='w-8 my-2 mx-2'/></Link>
+                    </td>
+
+                    <td> <Link to='/ebooklets'><span className="self-center">  Ebooklets</span></Link></td>
+                </tr>
+
+                {/* Infographics */}
+                
+                <tr>
+                    <td>
+                        <Link to='/infographic' className=''><img src="https://cdn-icons-png.flaticon.com/512/944/944053.png" alt="users"  className='w-8 my-2 mx-2'/></Link>
+                    </td>
+
+                    <td> <Link to='/infographic'><span className="self-center">  Infographics</span></Link></td>
+                </tr>
+
+
+
+                {/* Videos */}
+                <tr>
+                    <td>
+                        <Link to='/videos' className=''><img src="https://cdn-icons-png.flaticon.com/512/2991/2991195.png" alt="users"  className='w-8 my-2 mx-2'/></Link>
+                    </td>
+
+                    <td> <Link to='/videos'><span className="self-center">  Videos</span></Link></td>
+                </tr>
+
+
+                {/* webcast  */}
+
+                <tr>
+                    <td>
+                        <Link to='/webcast' className=''><img src="https://cdn-icons-png.flaticon.com/512/2177/2177994.png" alt="users"  className='w-8 my-2 mx-2'/></Link>
+                    </td>
+
+                    <td> <Link to='/webcast'><span className="self-center">  Webcast</span></Link></td>
                 </tr>
             </table>
            

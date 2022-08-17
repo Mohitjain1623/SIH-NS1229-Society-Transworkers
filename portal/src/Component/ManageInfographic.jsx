@@ -1,68 +1,14 @@
-import React, { useState,useEffect } from 'react';
-import {Navigate, useNavigate} from "react-router-dom";
+import React from 'react'
 import {Box,FormControl,TextField,Select,MenuItem, NativeSelect,InputLabel} from "@mui/material";
 import Datepicker from "./Date_picker";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import axios from "axios";
 
-export default function Example(){
-
-  const [postdata,setpostdata] = useState({location:'',language:'',ministry:'',title:'',url:''} );
-
-
-  const PostData = async(e)=>{
-    e.preventDefault();
-    const request =  axios.get('http://localhost:4000/api/press');
-    return request.then(response => response.data);
-  }
-
-  
-
+function ManageInfographic() {
   return (
-    
-    <form method='post' onClick={PostData}>
-     <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
-        <InputLabel htmlFor="grouped-native-select">Location</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select" label="Grouping" onChange={(e)=>setpostdata({...postdata,value:e.target.value})}>
-          <option aria-label="None" value="" />
-            <option>PIB Delhi</option>
-            <option>PIB Mumbai</option>
-            <option>PIB Hyderabad</option>
-            <option>PIB Chennai</option>
-            <option >PIB Chandigarh</option>
-            <option >PIB Kolkata</option>
-            <option > PIB Bengaluru</option>
-            <option >PIB Bhubaneswar</option>
-            <option >PIB Ahmedabad</option>
-            <option > PIB Guwahati</option>
-            <option >PIB Thiruvananthpuram</option>
-            <option > PIB Imphal</option>
-        </Select>
-      </FormControl>
-      <br/>
-      <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
-        <InputLabel htmlFor="grouped-native-select">Language</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select" label="Grouping">
-          <option aria-label="None" value="" />
-            <option>English</option>
-            <option>Hindi</option>
-            <option>Urdu</option>
-            <option>Marathi</option>
-            <option>Telugu</option>
-            <option>Tamil</option>
-            <option>Punjabi</option>
-            <option>Bengali</option>
-            <option>Kannada</option>
-            <option>Odia</option>
-            <option>Gujarati</option>
-            <option>Assamese</option>
-            <option>Malayalam</option>
-            <option>Manipuri</option>
-        </Select>
-      </FormControl>
-      <br/>
-      <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
+    <form>
+        {/* ministry */}
+         <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
         <InputLabel htmlFor="grouped-native-select">Ministry</InputLabel>
         <Select native defaultValue="" id="grouped-native-select" label="Grouping">
           <option aria-label="None" value="" />
@@ -204,12 +150,24 @@ export default function Example(){
 
         </Select>
       </FormControl>
-      <br/>
-      <div className="ml-2">
-      <Datepicker/>
-      </div>
+      <br />
+      {/* years */}
+      <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
+        <InputLabel htmlFor="grouped-native-select">Year</InputLabel>
+        <Select native defaultValue="" id="grouped-native-select" label="Year">
+          <option aria-label="None" value="" />
+            <option>2022</option>
+            <option>2021</option>
+            <option>2020</option>
+            <option>2019</option>
+            <option >2018</option>
+            <option >2017</option>
+        </Select>
+      </FormControl>
+
       
-      <Box
+{/* title */}
+<Box
       component="form"
       sx={{
         '& > :not(style)': { m: 1, width: '35ch' },
@@ -219,7 +177,7 @@ export default function Example(){
     >
       <TextField id="outlined-basic" label="Title" variant="outlined" />
     </Box>
-
+{/* url */}
     <Box
       component="form"
       sx={{
@@ -228,25 +186,14 @@ export default function Example(){
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Description" variant="outlined" />
+      <TextField id="outlined-basic" label="Url" variant="outlined" />
     </Box>
 
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '35ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined-basic" label="Link" variant="outlined" />
-    </Box>
     <Stack spacing={2} direction="row" sx={{px:10}}>
-      <Button variant="contained" sx={{px:5}}> Submit</Button>
+      <Button variant="contained" sx={{px:5}}>Submit</Button>
     </Stack>
-      </form>
-    
-  );
+    </form>
+  )
 }
 
-
+export default ManageInfographic
