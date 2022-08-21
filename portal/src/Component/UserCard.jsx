@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-function UserCard(props) {
+
+function UserCard(props) {  
   return (
     <div className="my-2 w-96 h-36 p-5 " style={{boxShadow:'1px 1px 2px 1px gray'}}>
         <p> <span className="font-bold"> Username :</span> {props.username}</p>

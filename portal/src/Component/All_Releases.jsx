@@ -6,26 +6,74 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import axios from "axios";
 
+const url = 'http://localhost:4000/api/press';
+
 export default function Example(){
 
-  const [postdata,setpostdata] = useState({location:'',language:'',ministry:'',title:'',url:''} );
-
+  const [postdata,setpostdata] = useState({location:'',language:'',ministry:'',title:'',description:'',link:''} );
 
   const PostData = async(e)=>{
     e.preventDefault();
-    const request =  axios.get('http://localhost:4000/api/press');
-    return request.then(response => response.data);
+    console.log(postdata);
+    try{
+      const res = await axios.post(url,postdata);
+      console.log(res);
+    }catch(error){
+      console.log(error.response);
+    }
+  }
+  
+  const handleLocationChange = (e)=>{
+    const newData = {
+      ...postdata,location:e.target.value
+    }
+    setpostdata(newData);
+  }
+
+  const handleLanguageChange = (e)=>{
+    const newData = {
+      ...postdata,language:e.target.value
+    }
+    setpostdata(newData);
+  }
+
+  const handleMinistryChange = (e)=>{
+    const newData = {
+      ...postdata,ministry:e.target.value
+    }
+    setpostdata(newData);
+  }
+
+  const handleTitleChange = (e)=>{
+    const newData = {
+      ...postdata,title:e.target.value
+    }
+    setpostdata(newData);
+  }
+
+  const handleDescriptionChange = (e)=>{
+    const newData = {
+      ...postdata,description:e.target.value
+    }
+    setpostdata(newData);
+  }
+
+  const handleLinkChange = (e)=>{
+    const newData = {
+      ...postdata,link:e.target.value
+    }
+    setpostdata(newData);
   }
 
   
-
   return (
     
-    <form method='post' onClick={PostData}>
-     <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
-        <InputLabel htmlFor="grouped-native-select">Location</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select" label="Grouping" onChange={(e)=>setpostdata({...postdata,value:e.target.value})}>
-          <option aria-label="None" value="" />
+    <form method='POST' onSubmit={PostData}>
+      <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
+        <InputLabel htmlFor="grouped-native-select" value="select"  >Location</InputLabel>
+        <Select native defaultValue="" id="grouped-native-select" label="Grouping" value={postdata.location} onChange={handleLocationChange} >
+          
+          <option></option>
             <option>PIB Delhi</option>
             <option>PIB Mumbai</option>
             <option>PIB Hyderabad</option>
@@ -43,7 +91,7 @@ export default function Example(){
       <br/>
       <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
         <InputLabel htmlFor="grouped-native-select">Language</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select" label="Grouping">
+        <Select native defaultValue="" id="grouped-native-select" label="Grouping" value={postdata.language} onChange={handleLanguageChange}> 
           <option aria-label="None" value="" />
             <option>English</option>
             <option>Hindi</option>
@@ -64,7 +112,7 @@ export default function Example(){
       <br/>
       <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
         <InputLabel htmlFor="grouped-native-select">Ministry</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select" label="Grouping">
+        <Select native defaultValue="" id="grouped-native-select" label="Grouping" value={postdata.ministry} onChange={handleMinistryChange}>
           <option aria-label="None" value="" />
             <option>All Ministry</option>
             <option>President's Secretariat</option>
@@ -207,17 +255,17 @@ export default function Example(){
       <br/>
       <div className="ml-2">
       <Datepicker/>
-      </div>
+      </div> 
       
-      <Box
+ <Box
       component="form"
       sx={{
         '& > :not(style)': { m: 1, width: '35ch' },
       }}
       noValidate
-      autoComplete="off"
+      autoComplete="on"
     >
-      <TextField id="outlined-basic" label="Title" variant="outlined" />
+      <TextField id="outlined-basic" label="Title" variant="outlined" value={postdata.title}  onChange={handleTitleChange}/>
     </Box>
 
     <Box
@@ -228,7 +276,7 @@ export default function Example(){
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Description" variant="outlined" />
+      <TextField id="outlined-basic" label="Description" value={postdata.description} variant="outlined" onChange={handleDescriptionChange}/>
     </Box>
 
     <Box
@@ -239,11 +287,12 @@ export default function Example(){
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Link" variant="outlined" />
+      <TextField id="outlined-basic" label="Link" value={postdata.link} onChange={handleLinkChange}variant="outlined" />
     </Box>
     <Stack spacing={2} direction="row" sx={{px:10}}>
-      <Button variant="contained" sx={{px:5}}> Submit</Button>
-    </Stack>
+      <Button variant="contained" sx={{px:5}}  type="submit"> Submit</Button>
+    </Stack> 
+
       </form>
     
   );

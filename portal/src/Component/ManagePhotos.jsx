@@ -1,16 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Box,FormControl,TextField,Select,MenuItem, NativeSelect,InputLabel} from "@mui/material";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Datepicker from "./Date_picker";
 
+import axios from "axios";
+
+const link = 'http://localhost:4000/api/photos';
+
+
 function ManagePhotos() {
+  const [postdata,setpostdata] = useState({ministry:'',title:'',url:''});
+
+  const PostData = async(e)=>{
+    e.preventDefault();
+    console.log(postdata);
+
+    try{
+      const res = await axios.post(link,postdata);
+      console.log(res);
+    }catch(error){
+      console.log(error.response);
+    }
+  }
+
+  const handleMinistryChange = (e)=>{
+    const newData = {
+      ...postdata,ministry:e.target.value
+    }
+    setpostdata(newData);
+  }
+
+  const handleTitleChange = (e)=>{
+    const newData = {
+      ...postdata,title:e.target.value
+    }
+    setpostdata(newData);
+  }
+
+  const handleLinkChange = (e)=>{
+    const newData = {
+      ...postdata,url:e.target.value
+    }
+    setpostdata(newData);
+  }
+  
   return (
     <div>
-        <form>
+        <form method='POST' onSubmit={PostData}>
         <FormControl sx={{ m: 1, minWidth: 120,width:300}} >
         <InputLabel htmlFor="grouped-native-select">Ministry</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select" label="Grouping">
+        <Select native defaultValue="" id="grouped-native-select" label="Grouping" value={postdata.ministry} onChange={handleMinistryChange} >
           <option aria-label="None" value="" />
             <option>All Ministry</option>
             <option>President's Secretariat</option>
@@ -162,7 +202,7 @@ function ManagePhotos() {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Title" variant="outlined" />
+      <TextField id="outlined-basic" label="Title" variant="outlined" value={postdata.title} onChange={handleTitleChange} />
     </Box>
     <Box
       component="form"
@@ -172,10 +212,10 @@ function ManagePhotos() {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Url" variant="outlined" />
+      <TextField id="outlined-basic" label="Url" variant="outlined" value={postdata.url} onChange={handleLinkChange} />
     </Box>
-      <Stack spacing={2} direction="row" sx={{px:10}}>
-      <Button variant="contained" sx={{px:5}}>Submit</Button>
+      <Stack spacing={2} direction="row" sx={{px:10}} >
+      <Button variant="contained" type="submit" sx={{px:5}}>Submit</Button>
     </Stack>
         </form>
     </div>
