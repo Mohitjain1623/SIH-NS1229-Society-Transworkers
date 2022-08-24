@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 import '../util/showimage.dart';
 import '../util/staticDB.dart';
@@ -35,24 +36,11 @@ class _ImagePageState extends State<ImagePage> {
             child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.84,
               child: Stack(children: <Widget>[
-                CarouselSlider.builder(
+                MasonryGridView.count(
+                  crossAxisCount: 2,
                   itemCount: StaticDB.images['images'].length,
-                  options: CarouselOptions(
-                    height: MediaQuery.of(context).size.height * 0.8,
-                    aspectRatio: 9 / 16,
-                    viewportFraction: 0.9,
-                    initialPage: 0,
-                    enableInfiniteScroll: true,
-                    reverse: false,
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enlargeCenterPage: true,
-                    scrollDirection: Axis.horizontal,
-                  ),
                   itemBuilder:
-                      (BuildContext context, int index, int realIndex) {
+                      (BuildContext context, int index) {
                     return InkWell(
                       onTap: () {
                         // Navigator.push(

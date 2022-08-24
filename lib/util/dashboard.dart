@@ -158,14 +158,14 @@ class DashBoardState extends State<DashBoard> {
 
   List<IconData> listOfIcons = [
     Icons.home_rounded,
-    Icons.search_rounded,
+    Icons.account_balance_rounded,
     Icons.notifications_none_rounded,
     Icons.person_rounded,
   ];
 
   List<String> listOfStrings = [
     'Home',
-    'Search',
+    'Ministry',
     'Alerts',
     'Account',
   ];
