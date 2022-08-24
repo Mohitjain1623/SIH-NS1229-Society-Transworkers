@@ -23,7 +23,12 @@ class _NewsDetailState extends State<NewsDetail> {
   void initState() {
     index = widget.index;
     type = widget.type;
-    url = StaticDB.releaseAug[type][index]['releaseURL'];
+
+    if (type == StaticDB.ytVideo['Youtube'][index]['videoURL']) {
+      url = StaticDB.ytVideo['Youtube'][index]['videoURL'];
+    } else {
+      url = StaticDB.releaseAug[type][index]['releaseURL'];
+    }
     super.initState();
   }
 
@@ -46,29 +51,11 @@ class _NewsDetailState extends State<NewsDetail> {
                 fontFamily: GoogleFonts.roboto().fontFamily)),
       ),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              physics: const ScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: 1,
-              itemBuilder: (context, int index) {
-                return Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.all(20),
-                    height: MediaQuery.of(context).size.height * 50,
-                    child: WebView(
-                      initialUrl: url,
-                      javascriptMode: JavascriptMode.unrestricted,
-                      userAgent:
-                          'Mozilla/5.0 (Linux; Android 8.1.0; Pixel Build/OPM1.171019.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36',
-                    ),
-                  ),
-                );
-              }),
-        ),
+      body: WebView(
+        initialUrl: url,
+        javascriptMode: JavascriptMode.unrestricted,
+        userAgent:
+            'Mozilla/5.0 (Linux; Android 8.1.0; Pixel Build/OPM1.171019.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36',
       ),
     );
   }

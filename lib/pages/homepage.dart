@@ -152,14 +152,12 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(23, 8, 8, 8),
-                child: Text(
-                    "Top Release",
+                child: Text("Top Release",
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.grey[800],
                         fontWeight: FontWeight.w600,
-                        fontFamily:
-                            GoogleFonts.roboto().fontFamily)),
+                        fontFamily: GoogleFonts.roboto().fontFamily)),
               ),
             ),
 
@@ -171,80 +169,73 @@ class _HomePageState extends State<HomePage> {
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,
                     padding: const EdgeInsets.only(left: 15),
-                    itemCount: StaticDB
-                        .pressRelease['rss']['channel']['item'].length,
+                    itemCount:
+                        StaticDB.pressRelease['rss']['channel']['item'].length,
                     itemBuilder: (context, int index) {
                       return
-                        // index2 < 4 ?
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => TopNews(type: StaticDB.releaseAug.keys.elementAt(index),)));
-                          },
-                          child: Container(
-                            width: MediaQuery.of(context)
-                                .size
-                                .width *
-                                0.45,
-                            height: MediaQuery.of(context)
-                                .size
-                                .height *
-                                0.15,
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                  BorderRadius.circular(
-                                      20)),
-                              elevation: 5,
-                              shadowColor: Colors.blue,
-                              child: Column(
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                children: <Widget>[
-                                  // Hero(
-                                  //   tag: StaticDB.news['news'][index]['id'],
-                                  //   child: Image.asset(
-                                  //       'assets/aazadi-ka-mahotsav.png',
-                                  //       height: MediaQuery.of(context)
-                                  //               .size
-                                  //               .height *
-                                  //           0.05,),
-                                  // ),
-                                  Padding(
-                                    padding:
-                                    const EdgeInsets.all(
-                                        8.0),
-                                    child: Text(
-                                      StaticDB.pressRelease['rss']['channel']['item'][index]['title'],
-                                      softWrap: true,
-                                      overflow:
-                                      TextOverflow.ellipsis,
-                                      maxLines: 3,
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontFamily:
-                                          GoogleFonts
-                                              .roboto()
-                                              .fontFamily),
-                                    ),
+                          // index2 < 4 ?
+                          InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TopNews(
+                                        type: StaticDB.releaseAug.keys
+                                            .elementAt(index),
+                                      )));
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            elevation: 5,
+                            shadowColor: Colors.blue,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                // Hero(
+                                //   tag: StaticDB.news['news'][index]['id'],
+                                //   child: Image.asset(
+                                //       'assets/aazadi-ka-mahotsav.png',
+                                //       height: MediaQuery.of(context)
+                                //               .size
+                                //               .height *
+                                //           0.05,),
+                                // ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    StaticDB.pressRelease['rss']['channel']
+                                        ['item'][index]['title'],
+                                    softWrap: true,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 3,
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily:
+                                            GoogleFonts.roboto().fontFamily),
                                   ),
-                                  // Divider(),
-                                  // Text(
-                                  //   StaticDB.releaseAug[StaticDB
-                                  //           .releaseAug.keys
-                                  //           .elementAt(index)]
-                                  //       [index]['date'],
-                                  //   softWrap: true,
-                                  //   style: TextStyle(
-                                  //       fontSize: 10,
-                                  //       fontFamily:
-                                  //           GoogleFonts.roboto()
-                                  //               .fontFamily),
-                                  // ),
-                                ],
-                              ),
+                                ),
+                                // Divider(),
+                                // Text(
+                                //   StaticDB.releaseAug[StaticDB
+                                //           .releaseAug.keys
+                                //           .elementAt(index)]
+                                //       [index]['date'],
+                                //   softWrap: true,
+                                //   style: TextStyle(
+                                //       fontSize: 10,
+                                //       fontFamily:
+                                //           GoogleFonts.roboto()
+                                //               .fontFamily),
+                                // ),
+                              ],
                             ),
                           ),
-                        );
+                        ),
+                      );
                       // : Container(
                       //     width: MediaQuery.of(context)
                       //             .size
@@ -297,14 +288,12 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(23, 8, 8, 8),
-                child: Text(
-                    "Video Gallery",
+                child: Text("Video Gallery",
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.grey[800],
                         fontWeight: FontWeight.w600,
-                        fontFamily:
-                        GoogleFonts.roboto().fontFamily)),
+                        fontFamily: GoogleFonts.roboto().fontFamily)),
               ),
             ),
 
@@ -319,67 +308,76 @@ class _HomePageState extends State<HomePage> {
                     itemCount: StaticDB.ytVideo['Youtube'].length,
                     itemBuilder: (context, int index) {
                       return
-                        // index2 < 4 ?
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => TopNews(type: StaticDB.releaseAug.keys.elementAt(index),)));
-                          },
-                          child: Container(
-                            width: MediaQuery.of(context)
-                                .size
-                                .width *
-                                0.45,
-                            height: MediaQuery.of(context)
-                                .size
-                                .height *
-                                0.15,
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                  BorderRadius.circular(
-                                      20)),
-                              elevation: 5,
-                              shadowColor: Colors.blue,
-                              child: Column(
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                children: <Widget>[
-                                  // Hero(
-                                  //   tag: StaticDB.news['news'][index]['id'],
-                                  //   child: Image.asset(
-                                  //       'assets/aazadi-ka-mahotsav.png',
-                                  //       height: MediaQuery.of(context)
-                                  //               .size
-                                  //               .height *
-                                  //           0.05,),
-                                  // ),
-                                  InkWell(
-                                    child: Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Image.network(StaticDB.ytVideo['Youtube'][index]['videoView'],
-                                        fit: BoxFit.cover),
-                                      ),
+                          // index2 < 4 ?
+                          InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TopNews(
+                                        type: StaticDB.releaseAug.keys
+                                            .elementAt(index),
+                                      )));
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            elevation: 5,
+                            shadowColor: Colors.blue,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                // Hero(
+                                //   tag: StaticDB.news['news'][index]['id'],
+                                //   child: Image.asset(
+                                //       'assets/aazadi-ka-mahotsav.png',
+                                //       height: MediaQuery.of(context)
+                                //               .size
+                                //               .height *
+                                //           0.05,),
+                                // ),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => NewsDetail(
+                                                index: index,
+                                                type:
+                                                    StaticDB.ytVideo['Youtube']
+                                                        [index]['videoURL'])));
+                                  },
+                                  child: Container(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Image.network(
+                                          StaticDB.ytVideo['Youtube'][index]
+                                              ['videoView'],
+                                          fit: BoxFit.cover),
                                     ),
-                                  )
-                                  // Divider(),
-                                  // Text(
-                                  //   StaticDB.releaseAug[StaticDB
-                                  //           .releaseAug.keys
-                                  //           .elementAt(index)]
-                                  //       [index]['date'],
-                                  //   softWrap: true,
-                                  //   style: TextStyle(
-                                  //       fontSize: 10,
-                                  //       fontFamily:
-                                  //           GoogleFonts.roboto()
-                                  //               .fontFamily),
-                                  // ),
-                                ],
-                              ),
+                                  ),
+                                )
+                                // Divider(),
+                                // Text(
+                                //   StaticDB.releaseAug[StaticDB
+                                //           .releaseAug.keys
+                                //           .elementAt(index)]
+                                //       [index]['date'],
+                                //   softWrap: true,
+                                //   style: TextStyle(
+                                //       fontSize: 10,
+                                //       fontFamily:
+                                //           GoogleFonts.roboto()
+                                //               .fontFamily),
+                                // ),
+                              ],
                             ),
                           ),
-                        );
+                        ),
+                      );
                     })
               ]),
             ),

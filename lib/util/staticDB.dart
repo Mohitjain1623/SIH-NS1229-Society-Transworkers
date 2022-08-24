@@ -3062,4 +3062,89 @@ class StaticDB {
       }
     ]
   };
+
+  static final Map ministryImage = {
+    "Ministry": [
+      {
+        "name": "Prime Minister's Office",
+        "imageURL":
+            "https://i.pinimg.com/originals/ce/90/ce/ce90ce480222a806cfbce7da1f4247e8.jpg"
+      },
+      {
+        "name": "President's Secretariat",
+        "imageURL":
+            "https://img.fresherslive.com/assets-images/company-logo/presidents-secretariat-logo.png"
+      },
+      {
+        "name": "Vice President's Secretariat",
+        "imageURL":
+            "https://img.fresherslive.com/assets-images/company-logo/presidents-secretariat-logo.png"
+      },
+      {
+        "name": "Cabinet",
+        "imageURL":
+            "https://assets.sentinelassam.com/h-upload/2020/07/05/141916-cab.jpg"
+      },
+      {
+        "name": "Cabinet Committee on Economic Affairs",
+        "imageURL":
+            "https://s3.ap-southeast-1.amazonaws.com/cdn.deccanchronicle.com/sites/default/files/Cabinet-Committee-Economic-Affairs.jpg"
+      },
+      {
+        "name": "AYUSH",
+        "imageURL":
+            "https://newsonair.gov.in/writereaddata/News_Pictures/NAT/2020/Nov/NPIC-202011117286.jpg"
+      },
+      {
+        "name": "Department Of Space",
+        "imageURL":
+            "https://www.indianbureaucracy.com/wp-content/uploads/2018/10/Department-of-Space.jpg"
+      },
+      {
+        "name": "Election Commission",
+        "imageURL":
+            "https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Election_Commission_of_India_logo.svg/1200px-Election_Commission_of_India_logo.svg.png"
+      },
+      {
+        "name": "Ministry of Agriculture and Farmer's Welfare",
+        "imageURL":
+            "https://newsonair.gov.in/writereaddata/News_Pictures/NAT/2021/Feb/NPIC-2021227135647.jpg"
+      },
+      {
+        "name": "Ministry of Chemicals and Fertilizers",
+        "imageURL":
+            "https://wiki.meramaal.com/wp-content/uploads/2018/07/Ministry-of-chemicals-and-fertilizers-logo-1.jpg"
+      },
+      {
+        "name": "Ministry of Civil Aviation",
+        "imageURL":
+            "https://static.wikia.nocookie.net/logopedia/images/c/c3/Civil_Aviation.jpg/revision/latest?cb=20200329040036"
+      },
+      {
+        "name": "Ministry of Coal",
+        "imageURL":
+            "https://www.thestatesman.com/wp-content/uploads/2021/10/coal-ministry.jpg"
+      },
+      {
+        "name": "Ministry of Commerce and Indrustry",
+        "imageURL":
+            "https://static.wikia.nocookie.net/logopedia/images/a/a8/Commerce_%26_Industry.jpeg/revision/latest?cb=20200328191331"
+      },
+      {
+        "name": "Ministry of Communications",
+        "imageURL":
+            "https://cdn.contactcenterworld.com/images/company/department-of-telecommunications-600px-logo.png"
+      },
+      {
+        "name": "Ministry of Consumer Affairs Food & Public Distributions",
+        "imageURL":
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Ministry_of_Consumer_Affairs%2C_Food_and_Public_Distribution.png/800px-Ministry_of_Consumer_Affairs%2C_Food_and_Public_Distribution.png"
+      },
+      {
+        "name": "NITI Aayog",
+        "imageURL":
+            "https://iconape.com/wp-content/png_logo_vector/niti-logo.png"
+      }
+    ]
+  };
 }

@@ -112,14 +112,12 @@ class _SearchPageState extends State<SearchPage> {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(23, 8, 8, 8),
-                child: Text(
-                    "Ministry",
+                child: Text("Ministry",
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.grey[800],
                         fontWeight: FontWeight.w600,
-                        fontFamily:
-                        GoogleFonts.roboto().fontFamily)),
+                        fontFamily: GoogleFonts.roboto().fontFamily)),
               ),
             ),
             // SizedBox(
@@ -148,86 +146,89 @@ class _SearchPageState extends State<SearchPage> {
               //   ),
               // ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.79,
+                height: MediaQuery.of(context).size.height * 0.68,
                 child: Stack(children: <Widget>[
                   ListView.builder(
                       scrollDirection: Axis.vertical,
                       physics: const BouncingScrollPhysics(),
                       shrinkWrap: true,
                       padding: const EdgeInsets.only(left: 15),
-                      itemCount: StaticDB
-                          .releaseAug.keys.length,
+                      itemCount: StaticDB.releaseAug.keys.length,
                       itemBuilder: (context, int index) {
                         return
-                          // index2 < 4 ?
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => TopNews(type: StaticDB.releaseAug.keys.elementAt(index),)));
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context)
-                                  .size
-                                  .width *
-                                  0.45,
-                              height: MediaQuery.of(context)
-                                  .size
-                                  .height *
-                                  0.15,
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                    BorderRadius.circular(
-                                        20)),
-                                elevation: 5,
-                                child: Column(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    // Hero(
-                                    //   tag: StaticDB.news['news'][index]['id'],
-                                    //   child: Image.asset(
-                                    //       'assets/aazadi-ka-mahotsav.png',
-                                    //       height: MediaQuery.of(context)
-                                    //               .size
-                                    //               .height *
-                                    //           0.05,),
-                                    // ),
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.all(
-                                          8.0),
-                                      child: Text(
-                                        StaticDB.releaseAug.keys.elementAt(index),
-                                        softWrap: true,
-                                        overflow:
-                                        TextOverflow.ellipsis,
-                                        maxLines: 3,
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontFamily:
-                                            GoogleFonts
-                                                .roboto()
-                                                .fontFamily),
+                            // index2 < 4 ?
+                            InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TopNews(
+                                          type: StaticDB.releaseAug.keys
+                                              .elementAt(index),
+                                        )));
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.45,
+                            height: MediaQuery.of(context).size.height * 0.15,
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              elevation: 5,
+                              shadowColor: Colors.blue,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  // Hero(
+                                  //   tag: StaticDB.news['news'][index]['id'],
+                                  //   child: Image.asset(
+                                  //       'assets/aazadi-ka-mahotsav.png',
+                                  //       height: MediaQuery.of(context)
+                                  //               .size
+                                  //               .height *
+                                  //           0.05,),
+                                  // ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SizedBox(
+                                      height: MediaQuery.of(context).size.height * 0.2,
+                                      width: MediaQuery.of(context).size.width * 0.2,
+                                      child: Image.network(
+                                        StaticDB.ministryImage['Ministry'][index]
+                                            ['imageURL'],
                                       ),
                                     ),
-                                    // Divider(),
-                                    // Text(
-                                    //   StaticDB.releaseAug[StaticDB
-                                    //           .releaseAug.keys
-                                    //           .elementAt(index)]
-                                    //       [index]['date'],
-                                    //   softWrap: true,
-                                    //   style: TextStyle(
-                                    //       fontSize: 10,
-                                    //       fontFamily:
-                                    //           GoogleFonts.roboto()
-                                    //               .fontFamily),
-                                    // ),
-                                  ],
-                                ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      StaticDB.releaseAug.keys.elementAt(index),
+                                      softWrap: true,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 3,
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily:
+                                              GoogleFonts.roboto().fontFamily),
+                                    ),
+                                  ),
+                                  // Divider(),
+                                  // Text(
+                                  //   StaticDB.releaseAug[StaticDB
+                                  //           .releaseAug.keys
+                                  //           .elementAt(index)]
+                                  //       [index]['date'],
+                                  //   softWrap: true,
+                                  //   style: TextStyle(
+                                  //       fontSize: 10,
+                                  //       fontFamily:
+                                  //           GoogleFonts.roboto()
+                                  //               .fontFamily),
+                                  // ),
+                                ],
                               ),
                             ),
-                          );
+                          ),
+                        );
                         // : Container(
                         //     width: MediaQuery.of(context)
                         //             .size
@@ -275,9 +276,8 @@ class _SearchPageState extends State<SearchPage> {
               SizedBox(
                 height: 10,
               ),
-              Divider(),
+              // Divider(),
             ]),
-
           ],
         ),
       ),
