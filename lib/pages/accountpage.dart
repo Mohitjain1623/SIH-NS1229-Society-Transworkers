@@ -24,17 +24,32 @@ checkUserLoggedIn() async {
     return true;
   } else {
     return false;
-    userName = "Enter UserName";
-    userNumber = "Enter UserNumber";
   }
 }
 
 class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(
+    return Scaffold(
+      body: ListView(
         children: [
+          Row(
+            children: [
+              IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              Text(
+                "Account",
+                style: GoogleFonts.roboto(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(

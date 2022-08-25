@@ -7,8 +7,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pib_project/pages/bookletdetailpage.dart';
 import 'package:pib_project/pages/imagepage.dart';
 import 'package:pib_project/pages/topnews.dart';
+import 'package:pib_project/routes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../util/showimage.dart';
 import '../util/staticDB.dart';
 import 'newsDetail.dart';
@@ -20,13 +23,42 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+List<String> arr = [];
+
+checkUserInterest() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  if (prefs.getBool('isInterested') == true) {
+    arr = prefs.getStringList('interest')!;
+    print(arr);
+    return true;
+  } else {
+    return false;
+  }
+}
+
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    checkUserInterest();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, MyRoutes.notificationRoute);
+              },
+              icon: Icon(
+                Icons.notifications_none_rounded,
+                color: Colors.grey,
+              ))
+        ],
+        backgroundColor: Colors.blue[100],
+        // centerTitle: true,
         title: Text('Press Information Bureau',
             style: TextStyle(
                 fontSize: 20,
@@ -327,53 +359,28 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(20)),
                             elevation: 5,
                             shadowColor: Colors.blue,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                // Hero(
-                                //   tag: StaticDB.news['news'][index]['id'],
-                                //   child: Image.asset(
-                                //       'assets/aazadi-ka-mahotsav.png',
-                                //       height: MediaQuery.of(context)
-                                //               .size
-                                //               .height *
-                                //           0.05,),
-                                // ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => NewsDetail(
-                                                index: index,
-                                                type:
-                                                    StaticDB.ytVideo['Youtube']
-                                                        [index]['videoURL'])));
-                                  },
-                                  child: Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Image.network(
-                                          StaticDB.ytVideo['Youtube'][index]
-                                              ['videoView'],
-                                          fit: BoxFit.cover),
-                                    ),
-                                  ),
-                                )
-                                // Divider(),
-                                // Text(
-                                //   StaticDB.releaseAug[StaticDB
-                                //           .releaseAug.keys
-                                //           .elementAt(index)]
-                                //       [index]['date'],
-                                //   softWrap: true,
-                                //   style: TextStyle(
-                                //       fontSize: 10,
-                                //       fontFamily:
-                                //           GoogleFonts.roboto()
-                                //               .fontFamily),
-                                // ),
-                              ],
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => NewsDetail(
+                                            index: index,
+                                            type: StaticDB.ytVideo['Youtube']
+                                                [index]['videoURL'])));
+                              },
+                              child: Image.network(
+                                  StaticDB.ytVideo['Youtube'][index]
+                                      ['videoView'],
+                                  // width: MediaQuery.of(context)
+                                  //         .size
+                                  //         .width *
+                                  //     0.45,
+                                  // height: MediaQuery.of(context)
+                                  //         .size
+                                  //         .height *
+                                  //     0.15,
+                                  fit: BoxFit.fill),
                             ),
                           ),
                         ),
@@ -385,6 +392,49 @@ class _HomePageState extends State<HomePage> {
               height: 10,
             ),
             Divider(),
+
+            // YoutubePlayerBuilder(
+            //     player: YoutubePlayer(
+            //       // controller: _controller,
+            //       showVideoProgressIndicator: true,
+            //       progressIndicatorColor: Colors.blueAccent,
+            //       topActions: <Widget>[
+            //         const SizedBox(width: 8.0),
+            //         // Expanded(
+            //         //   child: Text(
+            //         //     _controller.metadata.title,
+            //         //     style: const TextStyle(
+            //         //       color: Colors.white,
+            //         //       fontSize: 18.0,
+            //         //     ),
+            //         //     overflow: TextOverflow.ellipsis,
+            //         //     maxLines: 1,
+            //         //   ),
+            //         // ),
+            //         IconButton(
+            //           icon: const Icon(
+            //             Icons.settings,
+            //             color: Colors.white,
+            //             size: 25.0,
+            //           ),
+            //           onPressed: () {
+            //             // log('Settings Tapped!');
+            //           },
+            //         ),
+            //       ],
+            //       // onReady: () {
+            //       //   _isPlayerReady = true;
+            //       // },
+            //       // onEnded: (data) {
+            //       //   _controller
+            //       //       .load(_ids[(_ids.indexOf(data.videoId) + 1) % _ids.length]);
+            //       //   _showSnackBar('Next Video Started!');
+            //       // },
+            //     ),
+            //     builder: (context, player) =>
+            //     Scaffold(
+            //       body: Container(),
+            //     )),
             // Container(
             //   alignment: Alignment.centerLeft,
             //   child: Padding(
@@ -399,164 +449,180 @@ class _HomePageState extends State<HomePage> {
             //                 GoogleFonts.roboto().fontFamily)),
             //   ),
             // ),
-            // // SizedBox(
-            // //   child: Stack(children: <Widget>[
-            // //     ListView.builder(
-            // //         scrollDirection: Axis.vertical,
-            // //         physics: const BouncingScrollPhysics(),
-            // //         shrinkWrap: true,
-            // //         padding: const EdgeInsets.only(left: 15),
-            // //         itemCount: StaticDB.releaseAug.keys.length,
-            // //         itemBuilder: (context, index) {
-            // //           return
-            // Column(children: <Widget>[
-            //             // Container(
-            //             //   alignment: Alignment.centerLeft,
-            //             //   child: Padding(
-            //             //     padding: const EdgeInsets.all(8.0),
-            //             //     child: Text(
-            //             //         StaticDB.releaseAug.keys,
-            //             //         style: TextStyle(
-            //             //             fontSize: 18,
-            //             //             color: Colors.grey[800],
-            //             //             fontWeight: FontWeight.w600,
-            //             //             fontFamily:
-            //             //                 GoogleFonts.roboto().fontFamily)),
-            //             //   ),
-            //             // ),
-            //             SizedBox(
-            //               height: MediaQuery.of(context).size.height * 0.18,
-            //               child: Stack(children: <Widget>[
-            //                 ListView.builder(
-            //                     scrollDirection: Axis.horizontal,
-            //                     physics: const BouncingScrollPhysics(),
-            //                     shrinkWrap: true,
-            //                     padding: const EdgeInsets.only(left: 15),
-            //                     itemCount: StaticDB
-            //                                 .releaseAug.keys.length,
-            //                     itemBuilder: (context, int index) {
-            //                       return
-            //                         // index2 < 4 ?
-            //                         InkWell(
-            //                               onTap: () {
-            //                                 Navigator.push(context, MaterialPageRoute(builder: (context) => TopNews(type: StaticDB.releaseAug.keys.elementAt(index),)));
-            //                               },
-            //                               child: Container(
-            //                                 width: MediaQuery.of(context)
-            //                                         .size
-            //                                         .width *
-            //                                     0.45,
-            //                                 height: MediaQuery.of(context)
-            //                                         .size
-            //                                         .height *
-            //                                     0.15,
-            //                                 child: Card(
-            //                                   shape: RoundedRectangleBorder(
-            //                                       borderRadius:
-            //                                           BorderRadius.circular(
-            //                                               20)),
-            //                                   elevation: 5,
-            //                                   child: Column(
-            //                                     mainAxisAlignment:
-            //                                         MainAxisAlignment.center,
-            //                                     children: <Widget>[
-            //                                       // Hero(
-            //                                       //   tag: StaticDB.news['news'][index]['id'],
-            //                                       //   child: Image.asset(
-            //                                       //       'assets/aazadi-ka-mahotsav.png',
-            //                                       //       height: MediaQuery.of(context)
-            //                                       //               .size
-            //                                       //               .height *
-            //                                       //           0.05,),
-            //                                       // ),
-            //                                       Padding(
-            //                                         padding:
-            //                                             const EdgeInsets.all(
-            //                                                 8.0),
-            //                                         child: Text(
-            //                                           StaticDB.releaseAug.keys.elementAt(index),
-            //                                           softWrap: true,
-            //                                           overflow:
-            //                                               TextOverflow.ellipsis,
-            //                                           maxLines: 3,
-            //                                           style: TextStyle(
-            //                                               fontSize: 16,
-            //                                               fontFamily:
-            //                                                   GoogleFonts
-            //                                                           .roboto()
-            //                                                       .fontFamily),
-            //                                         ),
-            //                                       ),
-            //                                       // Divider(),
-            //                                       // Text(
-            //                                       //   StaticDB.releaseAug[StaticDB
-            //                                       //           .releaseAug.keys
-            //                                       //           .elementAt(index)]
-            //                                       //       [index]['date'],
-            //                                       //   softWrap: true,
-            //                                       //   style: TextStyle(
-            //                                       //       fontSize: 10,
-            //                                       //       fontFamily:
-            //                                       //           GoogleFonts.roboto()
-            //                                       //               .fontFamily),
-            //                                       // ),
-            //                                     ],
-            //                                   ),
-            //                                 ),
-            //                               ),
-            //                             );
-            //                           // : Container(
-            //                           //     width: MediaQuery.of(context)
-            //                           //             .size
-            //                           //             .width *
-            //                           //         0.45,
-            //                           //     height: MediaQuery.of(context)
-            //                           //             .size
-            //                           //             .height *
-            //                           //         0.1,
-            //                           //     child: Card(
-            //                           //         shape: RoundedRectangleBorder(
-            //                           //             borderRadius:
-            //                           //                 BorderRadius.circular(
-            //                           //                     20)),
-            //                           //         elevation: 5,
-            //                           //         child: InkWell(
-            //                           //           onTap: () {
-            //                           //             // start();
-            //                           //             Navigator.push(
-            //                           //                 context,
-            //                           //                 MaterialPageRoute(
-            //                           //                     builder: (context) =>
-            //                           //                         TopNews(
-            //                           //                           type: StaticDB
-            //                           //                               .releaseAug
-            //                           //                               .keys
-            //                           //                               .elementAt(
-            //                           //                                   index),
-            //                           //                         )));
-            //                           //           },
-            //                           //           child: Center(
-            //                           //             child: Text(
-            //                           //               "Show All",
-            //                           //               style: TextStyle(
-            //                           //                   fontSize: 17,
-            //                           //                   fontFamily:
-            //                           //                       GoogleFonts.roboto()
-            //                           //                           .fontFamily),
-            //                           //             ),
-            //                           //           ),
-            //                           //         )));
-            //                     })
-            //               ]),
-            //             ),
-            //             SizedBox(
-            //               height: 10,
-            //             ),
-            //             Divider(),
-            //           ]),
-            //         })
-            //   ]),
-            // ),
+            SizedBox(
+              child: Stack(children: <Widget>[
+                ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.only(left: 15),
+                    itemCount: StaticDB.releaseAug.keys.length,
+                    itemBuilder: (context, index) {
+                      return arr[index] ==
+                              StaticDB.releaseAug.keys.elementAt(index)
+                          ? Column(children: <Widget>[
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                      StaticDB.releaseAug.keys.elementAt(index),
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.grey[800],
+                                          fontWeight: FontWeight.w600,
+                                          fontFamily:
+                                              GoogleFonts.roboto().fontFamily)),
+                                ),
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.18,
+                                child: Stack(children: <Widget>[
+                                  ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      physics: const BouncingScrollPhysics(),
+                                      shrinkWrap: true,
+                                      padding: const EdgeInsets.only(left: 15),
+                                      itemCount: StaticDB
+                                          .releaseAug[StaticDB.releaseAug.keys
+                                              .elementAt(index)]
+                                          .length,
+                                      itemBuilder: (context, int index2) {
+                                        return
+                                            // index2 < 4 ?
+                                            InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        TopNews(
+                                                          type: StaticDB
+                                                              .releaseAug.keys
+                                                              .elementAt(index),
+                                                        )));
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.45,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.15,
+                                            child: Card(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20)),
+                                              elevation: 5,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: <Widget>[
+                                                  // Hero(
+                                                  //   tag: StaticDB.news['news'][index]['id'],
+                                                  //   child: Image.asset(
+                                                  //       'assets/aazadi-ka-mahotsav.png',
+                                                  //       height: MediaQuery.of(context)
+                                                  //               .size
+                                                  //               .height *
+                                                  //           0.05,),
+                                                  // ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                      StaticDB.releaseAug[StaticDB
+                                                              .releaseAug.keys
+                                                              .elementAt(index)]
+                                                          [index2]['title'],
+                                                      softWrap: true,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      maxLines: 3,
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontFamily:
+                                                              GoogleFonts
+                                                                      .roboto()
+                                                                  .fontFamily),
+                                                    ),
+                                                  ),
+                                                  // Divider(),
+                                                  // Text(
+                                                  //   StaticDB.releaseAug[StaticDB
+                                                  //           .releaseAug.keys
+                                                  //           .elementAt(index)]
+                                                  //       [index]['date'],
+                                                  //   softWrap: true,
+                                                  //   style: TextStyle(
+                                                  //       fontSize: 10,
+                                                  //       fontFamily:
+                                                  //           GoogleFonts.roboto()
+                                                  //               .fontFamily),
+                                                  // ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                        // : Container(
+                                        //     width: MediaQuery.of(context)
+                                        //             .size
+                                        //             .width *
+                                        //         0.45,
+                                        //     height: MediaQuery.of(context)
+                                        //             .size
+                                        //             .height *
+                                        //         0.1,
+                                        //     child: Card(
+                                        //         shape: RoundedRectangleBorder(
+                                        //             borderRadius:
+                                        //                 BorderRadius.circular(
+                                        //                     20)),
+                                        //         elevation: 5,
+                                        //         child: InkWell(
+                                        //           onTap: () {
+                                        //             // start();
+                                        //             Navigator.push(
+                                        //                 context,
+                                        //                 MaterialPageRoute(
+                                        //                     builder: (context) =>
+                                        //                         TopNews(
+                                        //                           type: StaticDB
+                                        //                               .releaseAug
+                                        //                               .keys
+                                        //                               .elementAt(
+                                        //                                   index),
+                                        //                         )));
+                                        //           },
+                                        //           child: Center(
+                                        //             child: Text(
+                                        //               "Show All",
+                                        //               style: TextStyle(
+                                        //                   fontSize: 17,
+                                        //                   fontFamily:
+                                        //                       GoogleFonts.roboto()
+                                        //                           .fontFamily),
+                                        //             ),
+                                        //           ),
+                                        //         )));
+                                      })
+                                ]),
+                              ),
+                              //             SizedBox(
+                              //               height: 10,
+                              //             ),
+                              //             Divider(),
+                            ])
+                          : Container();
+                    })
+              ]),
+            ),
             Container(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -581,88 +647,247 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(left: 15),
                       itemCount: 5,
                       itemBuilder: (context, int index) {
-                        return index < 4
-                            ? InkWell(
-                                onTap: () {
-                                  launch(StaticDB.Booklet["Booklet"][index]
-                                      ['bookletURL']);
-                                },
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.45,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.18,
-                                  child: Card(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    elevation: 5,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: <Widget>[
-                                        Center(
-                                          child: Image.asset(
-                                            "assets/ebook.png",
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.06,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                            StaticDB.Booklet["Booklet"][index]
-                                                ['bookletTitle'],
-                                            softWrap: true,
-                                            overflow: TextOverflow.ellipsis,
-                                            maxLines: 3,
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontFamily: GoogleFonts.roboto()
-                                                    .fontFamily),
-                                          ),
-                                        ),
-                                        Divider(),
-                                      ],
+                        return
+                            // index < 4 ?
+                            InkWell(
+                          onTap: () {
+                            launch(StaticDB.Booklet["Booklet"][index]
+                                ['bookletURL']);
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.45,
+                            height: MediaQuery.of(context).size.height * 0.18,
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              elevation: 5,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Center(
+                                    child: Image.asset(
+                                      "assets/ebook.png",
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.06,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                ),
-                              )
-                            : Container(
-                                width: MediaQuery.of(context).size.width * 0.45,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.1,
-                                child: Card(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    elevation: 5,
-                                    child: InkWell(
-                                      onTap: () {
-                                        // start();
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    BookletDetailPage()));
-                                      },
-                                      child: Center(
-                                        child: Text(
-                                          "Show All",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontFamily: GoogleFonts.roboto()
-                                                  .fontFamily),
-                                        ),
-                                      ),
-                                    )));
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      StaticDB.Booklet["Booklet"][index]
+                                          ['bookletTitle'],
+                                      softWrap: true,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 3,
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily:
+                                              GoogleFonts.roboto().fontFamily),
+                                    ),
+                                  ),
+                                  Divider(),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                        // : Container(
+                        //     width: MediaQuery.of(context).size.width * 0.45,
+                        //     height:
+                        //         MediaQuery.of(context).size.height * 0.1,
+                        //     child: Card(
+                        //         shape: RoundedRectangleBorder(
+                        //             borderRadius:
+                        //                 BorderRadius.circular(20)),
+                        //         elevation: 5,
+                        //         child: InkWell(
+                        //           onTap: () {
+                        //             // start();
+                        //             Navigator.push(
+                        //                 context,
+                        //                 MaterialPageRoute(
+                        //                     builder: (context) =>
+                        //                         BookletDetailPage()));
+                        //           },
+                        //           child: Center(
+                        //             child: Text(
+                        //               "Show All",
+                        //               style: TextStyle(
+                        //                   fontSize: 17,
+                        //                   fontFamily: GoogleFonts.roboto()
+                        //                       .fontFamily),
+                        //             ),
+                        //           ),
+                        //         )));
                       })
                 ]),
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Divider(),
+            Column(
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(23, 8, 8, 8),
+                    child: Text("Social Media",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey[800],
+                            fontWeight: FontWeight.w600,
+                            fontFamily: GoogleFonts.roboto().fontFamily)),
+                  ),
+                ),
+                SizedBox(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            height: MediaQuery.of(context).size.width * 0.2,
+                            child: Column(
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => NewsDetail(
+                                                    type:
+                                                        "https://twitter.com/PIB_India?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+                                                    index: 0,
+                                                  )));
+                                    },
+                                    icon: Image.asset("assets/twitter.png")),
+                                Text("@PIB_India")
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            height: MediaQuery.of(context).size.width * 0.2,
+                            child: Column(
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => NewsDetail(
+                                                    type:
+                                                        "https://www.youtube.com/user/pibindia",
+                                                    index: 1,
+                                                  )));
+                                    },
+                                    icon: Image.asset("assets/youtube.png")),
+                                Text("PIBIndia")
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            height: MediaQuery.of(context).size.width * 0.2,
+                            child: Column(
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => NewsDetail(
+                                                    type:
+                                                        "https://www.facebook.com/pibindia",
+                                                    index: 2,
+                                                  )));
+                                    },
+                                    icon: Image.asset("assets/facebook.png")),
+                                Text("@pibindia")
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            height: MediaQuery.of(context).size.width * 0.2,
+                            child: Column(
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => NewsDetail(
+                                                    type:
+                                                        "https://twitter.com/PIBFactCheck?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+                                                    index: 0,
+                                                  )));
+                                    },
+                                    icon: Image.asset("assets/twitter.png")),
+                                Text("@PIBFactCheck")
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            height: MediaQuery.of(context).size.width * 0.2,
+                            child: Column(
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => NewsDetail(
+                                                    type:
+                                                        "https://www.youtube.com/c/pmoindia",
+                                                    index: 1,
+                                                  )));
+                                    },
+                                    icon: Image.asset(
+                                      "assets/youtube.png",
+                                    )),
+                                Text("PMO India")
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.33,
+                            height: MediaQuery.of(context).size.width * 0.2,
+                            child: Column(
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => NewsDetail(
+                                                    type:
+                                                        "https://www.kooapp.com/profile/PIB_India",
+                                                    index: 2,
+                                                  )));
+                                    },
+                                    icon: Image.asset("assets/koo.png")),
+                                Text("@PIBFactCheck")
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+
             SizedBox(
               height: 10,
             ),

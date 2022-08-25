@@ -7,4 +7,10 @@ class Constants{
     await prefs.setString('userNumber', number);
     await prefs.setString('username', username);
   }
+
+  static setInterests(bool val, List<String> arr) async {
+    final SharedPreferences prefsInterest = await SharedPreferences.getInstance();
+    await prefsInterest.setBool('isInterested', val);
+    await prefsInterest.setStringList("interest", arr);
+  }
 }

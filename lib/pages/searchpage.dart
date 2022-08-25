@@ -23,90 +23,90 @@ class _SearchPageState extends State<SearchPage> {
         body: Column(
           children: [
             Padding(padding: EdgeInsets.only(top: 5)),
-            Row(
-              children: [
-                SafeArea(
-                  top: true,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Container(
-                        height: 38,
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: Colors.grey[300],
-                        ),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(
-                                Icons.search,
-                                size: 20,
-                                color: Colors.black,
-                              ),
-                            ),
-                            Expanded(
-                              child: TextFormField(
-                                cursorColor: Colors.black,
-                                focusNode: searchFocusNode,
-                                controller: searchController,
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Search',
-                                  hintStyle: TextStyle(
-                                    fontSize: 17,
-                                    color: Colors.black45,
-                                    fontFamily: GoogleFonts.roboto().fontFamily,
-                                  ),
-                                ),
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                  fontFamily: GoogleFonts.roboto().fontFamily,
-                                ),
-                                onChanged: (value) {
-                                  setState(() {
-                                    searchController.text = value;
-                                    searchController.selection =
-                                        TextSelection.fromPosition(TextPosition(
-                                            offset:
-                                                searchController.text.length));
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          searchController.clear();
-                          searchController.text = '';
-                          setState(() {});
-                        },
-                        icon: !searchController.text.isEmpty
-                            ? Icon(
-                                Icons.cancel,
-                                color: Colors.black,
-                              )
-                            : Icon(
-                                Icons.cancel,
-                                color: Colors.black45,
-                              ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            Divider(
-              color: Colors.grey[300],
-              thickness: 1,
-            ),
+            // Row(
+            //   children: [
+            //     SafeArea(
+            //       top: true,
+            //       child: Row(
+            //         children: [
+            //           SizedBox(
+            //             width: 20,
+            //           ),
+            //           Container(
+            //             height: 38,
+            //             width: MediaQuery.of(context).size.width * 0.8,
+            //             decoration: BoxDecoration(
+            //               borderRadius: BorderRadius.circular(25),
+            //               color: Colors.grey[300],
+            //             ),
+            //             child: Row(
+            //               children: [
+            //                 Padding(
+            //                   padding: const EdgeInsets.all(8.0),
+            //                   child: Icon(
+            //                     Icons.search,
+            //                     size: 20,
+            //                     color: Colors.black,
+            //                   ),
+            //                 ),
+            //                 Expanded(
+            //                   child: TextFormField(
+            //                     cursorColor: Colors.black,
+            //                     focusNode: searchFocusNode,
+            //                     controller: searchController,
+            //                     decoration: InputDecoration(
+            //                       border: InputBorder.none,
+            //                       hintText: 'Search',
+            //                       hintStyle: TextStyle(
+            //                         fontSize: 17,
+            //                         color: Colors.black45,
+            //                         fontFamily: GoogleFonts.roboto().fontFamily,
+            //                       ),
+            //                     ),
+            //                     style: TextStyle(
+            //                       fontSize: 17,
+            //                       color: Colors.black,
+            //                       fontFamily: GoogleFonts.roboto().fontFamily,
+            //                     ),
+            //                     onChanged: (value) {
+            //                       setState(() {
+            //                         searchController.text = value;
+            //                         searchController.selection =
+            //                             TextSelection.fromPosition(TextPosition(
+            //                                 offset:
+            //                                     searchController.text.length));
+            //                       });
+            //                     },
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //           IconButton(
+            //             onPressed: () {
+            //               searchController.clear();
+            //               searchController.text = '';
+            //               setState(() {});
+            //             },
+            //             icon: !searchController.text.isEmpty
+            //                 ? Icon(
+            //                     Icons.cancel,
+            //                     color: Colors.black,
+            //                   )
+            //                 : Icon(
+            //                     Icons.cancel,
+            //                     color: Colors.black45,
+            //                   ),
+            //           ),
+            //         ],
+            //       ),
+            //     )
+            //   ],
+            // ),
+            // Divider(
+            //   color: Colors.grey[300],
+            //   thickness: 1,
+            // ),
 
             Container(
               alignment: Alignment.centerLeft,
@@ -146,7 +146,7 @@ class _SearchPageState extends State<SearchPage> {
               //   ),
               // ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.68,
+                height: MediaQuery.of(context).size.height * 0.77,
                 child: Stack(children: <Widget>[
                   ListView.builder(
                       scrollDirection: Axis.vertical,
@@ -198,17 +198,20 @@ class _SearchPageState extends State<SearchPage> {
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      StaticDB.releaseAug.keys.elementAt(index),
-                                      softWrap: true,
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 3,
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontFamily:
-                                              GoogleFonts.roboto().fontFamily),
+                                  Container(
+                                    width: MediaQuery.of(context).size.width*0.5,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        StaticDB.releaseAug.keys.elementAt(index),
+                                        softWrap: true,
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 3,
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontFamily:
+                                                GoogleFonts.roboto().fontFamily),
+                                      ),
                                     ),
                                   ),
                                   // Divider(),

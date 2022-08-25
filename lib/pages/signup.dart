@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pib_project/pages/interestpage.dart';
+import 'package:pib_project/util/apifinal.dart';
 import 'package:progress_state_button/iconed_button.dart';
 import 'package:progress_state_button/progress_button.dart';
 import '../routes.dart';
@@ -11,6 +13,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  String username = "";
+  String email = "";
   String number = "";
   String password = "";
   bool showPassword = true;
@@ -22,18 +26,35 @@ class _SignUpPageState extends State<SignUpPage> {
     if (_formKey.currentState!.validate()) {
       switch (stateTextWithIcon) {
         case ButtonState.idle:
-          setState(() async {
-            stateTextWithIcon = ButtonState.loading;
-            number = "";
+          stateTextWithIcon = ButtonState.loading;
+          setState(() {});
+          await Future.delayed(Duration(milliseconds: 2000));
+          number = "";
 
-            await Future.delayed(Duration(milliseconds: 2000));
-            FocusScopeNode currentFocus = FocusScope.of(context);
-            currentFocus.unfocus();
-            stateTextWithIcon = ButtonState.success;
-            await Future.delayed(Duration(milliseconds: 1000));
-            await Navigator.pushReplacementNamed(context, MyRoutes.homeRoute);
-            stateTextWithIcon = ButtonState.idle;
-          });
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          currentFocus.unfocus();
+          // await ApiCalling()
+          //     .createUser(username, email, number, password)
+          //     .then((value) async {
+            // if (value == "OK") {
+              setState(() {});
+              stateTextWithIcon = ButtonState.success;
+              await Future.delayed(Duration(milliseconds: 1000));
+              await Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => InterestPage(),
+                  ));
+              setState(() {});
+            // } else {
+            //   stateTextWithIcon = ButtonState.fail;
+            //   await Future.delayed(Duration(milliseconds: 1000));
+            // }
+          // });
+
+          stateTextWithIcon = ButtonState.idle;
+
+          setState(() {});
           break;
         case ButtonState.fail:
           stateTextWithIcon = ButtonState.idle;
@@ -64,7 +85,7 @@ class _SignUpPageState extends State<SignUpPage> {
               //   fit: BoxFit.cover,
               // ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.15,
               ),
               Text(
                 "Welcome",
@@ -85,6 +106,68 @@ class _SignUpPageState extends State<SignUpPage> {
                     TextFormField(
                       keyboardType: const TextInputType.numberWithOptions(
                           signed: true, decimal: true),
+                      decoration: InputDecoration(
+                          // prefix: Text("+91 "),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
+                          hintText: "Enter Username",
+                          labelText: "Username"),
+                      validator: (String? value) {
+                        if (value!.isEmpty || value.length < 3) {
+                          return "Enter Username";
+                        }
+                        return null;
+                      },
+                      // onChanged: (value) {
+                      //   if (value.length == 10) {
+                      //     setState(() {
+                      //       FocusScopeNode currentFocus =
+                      //       FocusScope.of(context);
+                      //       currentFocus.unfocus();
+                      //       number = value;
+                      //     });
+                      //   }
+                      // },
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      keyboardType: const TextInputType.numberWithOptions(
+                          signed: true, decimal: true),
+                      // inputFormatters: [
+                      //   FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                      //   LengthLimitingTextInputFormatter(10)
+                      // ],
+                      decoration: InputDecoration(
+                          // prefix: Text("+91 "),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
+                          hintText: "Enter Email",
+                          labelText: "Email"),
+                      validator: (String? value) {
+                        if (value!.isEmpty || value.length < 10) {
+                          return "Enter Email";
+                        }
+                        return null;
+                      },
+                      // onChanged: (value) {
+                      //   if (value.length == 10) {
+                      //     setState(() {
+                      //       FocusScopeNode currentFocus =
+                      //       FocusScope.of(context);
+                      //       currentFocus.unfocus();
+                      //       number = value;
+                      //     });
+                      //   }
+                      // },
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      keyboardType: const TextInputType.numberWithOptions(
+                          signed: true, decimal: true),
                       inputFormatters: [
                         FilteringTextInputFormatter.allow(RegExp("[0-9]")),
                         LengthLimitingTextInputFormatter(10)
@@ -92,8 +175,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       decoration: InputDecoration(
                           prefix: Text("+91 "),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40.0)
-                          ),
+                              borderRadius: BorderRadius.circular(40.0)),
                           hintText: "Enter Phone Number",
                           labelText: "Phone Number"),
                       validator: (String? value) {
@@ -131,8 +213,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             color: Colors.grey,
                           ),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40.0)
-                          ),
+                              borderRadius: BorderRadius.circular(40.0)),
                           hintText: "Enter Password",
                           labelText: "Password"),
                       validator: (String? value) {
@@ -162,8 +243,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             color: Colors.grey,
                           ),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40.0)
-                          ),
+                              borderRadius: BorderRadius.circular(40.0)),
                           hintText: "Confirm Password",
                           labelText: "Re-Enter Password"),
                       validator: (String? value) {
@@ -171,9 +251,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           return "Password cannot be empty";
                         } else if (value.length < 6) {
                           return "Password should contain atleast 6 character";
-                        } else if (value != number) {
-                          return "Password should be same";
                         }
+                        // else if (value != number) {
+                        //   return "Password should be same";
+                        // }
                         password = value;
                         return null;
                       },
@@ -224,8 +305,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     InkWell(
-                      onTap: () =>
-                          Navigator.pushReplacementNamed(context, MyRoutes.loginRoute),
+                      onTap: () => Navigator.pushReplacementNamed(
+                          context, MyRoutes.loginRoute),
                       child: Container(
                         padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
                         decoration: BoxDecoration(

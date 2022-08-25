@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../routes.dart';
 import '../util/staticDB.dart';
 import 'newsDetail.dart';
 

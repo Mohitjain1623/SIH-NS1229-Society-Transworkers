@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
         MyRoutes.splashRoute: (context) => SplashScreen(),
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.signupRoute: (context) => SignUpPage(),
-        MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.notificationRoute: (context) => NotificationPage(),
         MyRoutes.searchRoute: (context) => SearchPage(),
         MyRoutes.accountRoute: (context) => AccountPage(),

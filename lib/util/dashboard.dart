@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pib_project/pages/accountpage.dart';
 import 'package:pib_project/pages/homepage.dart';
-import 'package:pib_project/pages/notificationpage.dart';
-
+import 'package:pib_project/pages/newsDetail.dart';
+import 'package:pib_project/pages/profilepage.dart';
 import '../pages/searchpage.dart';
 
 void main() {
@@ -16,6 +16,8 @@ void main() {
 }
 
 class DashBoard extends StatefulWidget {
+  DashBoard({Key? key}) : super(key: key);
+
   @override
   DashBoardState createState() => DashBoardState();
 }
@@ -27,6 +29,7 @@ class DashBoardState extends State<DashBoard> {
   @override
   void initState() {
     checkUserLoggedIn();
+    setState(() {});
     super.initState();
   }
 
@@ -38,7 +41,7 @@ class DashBoardState extends State<DashBoard> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.all(displayWidth * .05),
+        margin: EdgeInsets.all(displayWidth * .01),
         height: displayWidth * .155,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -102,7 +105,7 @@ class DashBoardState extends State<DashBoard> {
                             duration: Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
                             width:
-                            index == currentIndex ? displayWidth * .13 : 0,
+                                index == currentIndex ? displayWidth * .13 : 0,
                           ),
                           AnimatedOpacity(
                             opacity: index == currentIndex ? 1 : 0,
@@ -127,7 +130,7 @@ class DashBoardState extends State<DashBoard> {
                             duration: Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
                             width:
-                            index == currentIndex ? displayWidth * .03 : 20,
+                                index == currentIndex ? displayWidth * .03 : 20,
                           ),
                           Icon(
                             listOfIcons[index],
@@ -152,24 +155,24 @@ class DashBoardState extends State<DashBoard> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     SearchPage(),
-    NotificationPage(),
-    AccountPage()
+    NewsDetail(
+        index: 0,
+        type:
+            "https://syndication.twitter.com/srv/timeline-profile/screen-name/PIBFactCheck?dnt=false&embedId=twitter-widget-2&frame=false&lang=en&origin=https%3A%2F%2Fmib.gov.in%2F&sessionId=2aa9c03d50b71c24ddc9c2ea78c4c89975cfe8d6&showHeader=true&showReplies=false&widgetsVersion=31f0cdc1eaa0f%3A1660602114609"),
+    ProfilePage(),
   ];
 
   List<IconData> listOfIcons = [
     Icons.home_rounded,
     Icons.account_balance_rounded,
-    Icons.notifications_none_rounded,
+    Icons.fact_check_outlined,
     Icons.person_rounded,
   ];
 
   List<String> listOfStrings = [
     'Home',
     'Ministry',
-    'Alerts',
+    'Fact\nCheck',
     'Account',
   ];
 }
-
-
-
