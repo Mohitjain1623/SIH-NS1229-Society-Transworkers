@@ -11,12 +11,12 @@ void main() {
     MaterialApp(
       title: 'Bottom Navigation Bar',
       home: DashBoard(),
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
 
 class DashBoard extends StatefulWidget {
-  DashBoard({Key? key}) : super(key: key);
 
   @override
   DashBoardState createState() => DashBoardState();
@@ -29,7 +29,6 @@ class DashBoardState extends State<DashBoard> {
   @override
   void initState() {
     checkUserLoggedIn();
-    setState(() {});
     super.initState();
   }
 

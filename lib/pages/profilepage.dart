@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pib_project/pages/accountpage.dart';
 import 'package:pib_project/pages/interestpage.dart';
+import 'package:pib_project/pages/languagepage.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -106,6 +107,41 @@ class _ProfilePageState extends State<ProfilePage> {
                             color: Colors.blue,
                           ),
                           title: Text('Ministry of Interest'),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LanguagePage()));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(.1),
+                            blurRadius: 30,
+                            offset: Offset(0, 10),
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 70,
+                      width: double.infinity,
+                      child: Center(
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.language,
+                            color: Colors.blue,
+                          ),
+                          title: Text('Language of Interest'),
                         ),
                       ),
                     ),

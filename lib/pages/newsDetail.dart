@@ -19,6 +19,7 @@ class _NewsDetailState extends State<NewsDetail> {
   var url = "";
   String type = "";
   bool home = false;
+  bool loading = true;
 
   @override
   void initState() {
@@ -44,9 +45,33 @@ class _NewsDetailState extends State<NewsDetail> {
       url = type;
     } else if (type == "https://www.kooapp.com/profile/PIB_India") {
       url = type;
-    } else {
+    }
+    else if (type == "hindi") {
+      url = StaticDB.pressRelease['rss']['channel'][0]['item'][index]['link'];
+    }else if (type == "telugu") {
+      url = StaticDB.pressRelease['rss']['channel'][1]['item'][index]['link'];
+    }else if (type == "tamil") {
+      url = StaticDB.pressRelease['rss']['channel'][2]['item'][index]['link'];
+    }
+    else if (type == "punjabi") {
+      url = StaticDB.pressRelease['rss']['channel'][3]['item'][index]['link'];
+    }else if (type == "bengali") {
+      url = StaticDB.pressRelease['rss']['channel'][4]['item'][index]['link'];
+    }else if (type == "kannada") {
+      url = StaticDB.pressRelease['rss']['channel'][5]['item'][index]['link'];
+    }else if (type == "english") {
+      url = StaticDB.pressRelease['rss']['channel'][6]['item'][index]['link'];
+    }else if (type == "gujrati") {
+      url = StaticDB.pressRelease['rss']['channel'][7]['item'][index]['link'];
+    }else if (type == "assamese") {
+      url = StaticDB.pressRelease['rss']['channel'][8]['item'][index]['link'];
+    }else if (type == "malyalam") {
+      url = StaticDB.pressRelease['rss']['channel'][9]['item'][index]['link'];
+    }
+    else {
       url = StaticDB.releaseAug[type][index]['releaseURL'];
     }
+
     if (url ==
         "https://syndication.twitter.com/srv/timeline-profile/screen-name/PIBFactCheck?dnt=false&embedId=twitter-widget-2&frame=false&lang=en&origin=https%3A%2F%2Fmib.gov.in%2F&sessionId=2aa9c03d50b71c24ddc9c2ea78c4c89975cfe8d6&showHeader=true&showReplies=false&widgetsVersion=31f0cdc1eaa0f%3A1660602114609") {
       home = true;
@@ -75,11 +100,21 @@ class _NewsDetailState extends State<NewsDetail> {
                 fontFamily: GoogleFonts.roboto().fontFamily)),
       ),
       backgroundColor: Colors.white,
-      body: WebView(
-        initialUrl: url,
-        javascriptMode: JavascriptMode.unrestricted,
-        userAgent:
-            'Mozilla/5.0 (Linux; Android 8.1.0; Pixel Build/OPM1.171019.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36',
+      body: Stack(
+        children: [
+          WebView(
+            initialUrl: url,
+            javascriptMode: JavascriptMode.unrestricted,
+            userAgent:
+                'Mozilla/5.0 (Linux; Android 8.1.0; Pixel Build/OPM1.171019.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36',
+            onPageFinished: (finish) {
+              setState(() {
+                loading = false;
+              });
+            },
+          ),
+          loading ? Center(child: CircularProgressIndicator()) : Container(),
+        ],
       ),
     );
   }

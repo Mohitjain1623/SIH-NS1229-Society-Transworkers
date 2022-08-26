@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pib_project/pages/interestpage.dart';
 import 'package:pib_project/util/apifinal.dart';
+import 'package:pib_project/util/dashboard.dart';
 import 'package:progress_state_button/iconed_button.dart';
 import 'package:progress_state_button/progress_button.dart';
 import '../routes.dart';
@@ -43,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
               await Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => InterestPage(),
+                    builder: (context) => DashBoard(),
                   ));
               setState(() {});
             // } else {
@@ -104,8 +105,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   children: [
                     TextFormField(
-                      keyboardType: const TextInputType.numberWithOptions(
-                          signed: true, decimal: true),
+                      // keyboardType: const TextInputType.numberWithOptions(
+                      //     signed: true, decimal: true),
                       decoration: InputDecoration(
                           // prefix: Text("+91 "),
                           border: OutlineInputBorder(
@@ -133,8 +134,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       height: 10.0,
                     ),
                     TextFormField(
-                      keyboardType: const TextInputType.numberWithOptions(
-                          signed: true, decimal: true),
+                      // keyboardType: const TextInputType.numberWithOptions(
+                      //     signed: true, decimal: true),
                       // inputFormatters: [
                       //   FilteringTextInputFormatter.allow(RegExp("[0-9]")),
                       //   LengthLimitingTextInputFormatter(10)

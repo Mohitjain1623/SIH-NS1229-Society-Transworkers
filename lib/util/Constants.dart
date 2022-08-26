@@ -13,4 +13,10 @@ class Constants{
     await prefsInterest.setBool('isInterested', val);
     await prefsInterest.setStringList("interest", arr);
   }
+
+  static setLanguage(bool val, int langIndex) async {
+    final SharedPreferences prefsInterest = await SharedPreferences.getInstance();
+    await prefsInterest.setBool('isLangSelected', val);
+    await prefsInterest.setInt("language", langIndex);
+  }
 }

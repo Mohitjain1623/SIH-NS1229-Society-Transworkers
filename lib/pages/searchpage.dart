@@ -146,7 +146,7 @@ class _SearchPageState extends State<SearchPage> {
               //   ),
               // ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.77,
+                height: MediaQuery.of(context).size.height * 0.8075,
                 child: Stack(children: <Widget>[
                   ListView.builder(
                       scrollDirection: Axis.vertical,

@@ -64,8 +64,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     .size
                     .height * 0.3,
               ),
-              Image.asset(
-                  'assets/aazadi-ka-mahotsav.png', width: 80, height: 80),
+              // Image.asset(
+              //     'assets/aazadi-ka-mahotsav.png', width: 80, height: 80),
               Text('Press Information Bureau',
                   style: TextStyle(
                       fontSize: 20,

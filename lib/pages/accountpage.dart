@@ -20,7 +20,7 @@ checkUserLoggedIn() async {
   if (prefs.getBool('isLoggedIn') == true) {
     userName = prefs.getString('username')!;
     userNumber = prefs.getString('userNumber')!;
-    print(userName);
+    // print(userName);
     return true;
   } else {
     return false;

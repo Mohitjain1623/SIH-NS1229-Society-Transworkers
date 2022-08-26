@@ -34,8 +34,10 @@ class _NotificationPageState extends State<NotificationPage> {
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: StaticDB.alerts['alerts'].isEmpty
-            ? Column(
+        child:
+        // StaticDB.alerts['alerts'].isEmpty
+        //     ?
+        Column(
                 children: [
                   Center(
                     child: Padding(
@@ -59,58 +61,58 @@ class _NotificationPageState extends State<NotificationPage> {
                   ),
                 ],
               )
-            : ListView.builder(
-                scrollDirection: Axis.vertical,
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: StaticDB.alerts['alerts'].length,
-                itemBuilder: (context, int index) {
-                  return Dismissible(
-                      key: Key(StaticDB.alerts['alerts'][index]['id']),
-                      onDismissed: (direction) {
-                        setState(() {
-                          StaticDB.alerts['alerts'].removeAt(index);
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Notification deleted")));
-                      },
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ListTile(
-                              tileColor: Colors.white,
-                              minVerticalPadding: 10,
-                              leading: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                child: Icon(
-                                  Icons.notifications,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              title: Text(
-                                StaticDB.alerts['alerts'][index]['title'],
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            NewsDetail(index: index, type: "",)));
-                              },
-                            ),
-                          ),
-                          const Divider(
-                            height: 1,
-                          )
-                        ],
-                      ));
-                },
-              ),
+            // : ListView.builder(
+            //     scrollDirection: Axis.vertical,
+            //     physics: const BouncingScrollPhysics(),
+            //     shrinkWrap: true,
+            //     itemCount: StaticDB.alerts['alerts'].length,
+            //     itemBuilder: (context, int index) {
+            //       return Dismissible(
+            //           key: Key(StaticDB.alerts['alerts'][index]['id']),
+            //           onDismissed: (direction) {
+            //             setState(() {
+            //               StaticDB.alerts['alerts'].removeAt(index);
+            //             });
+            //             ScaffoldMessenger.of(context).showSnackBar(
+            //                 SnackBar(content: Text("Notification deleted")));
+            //           },
+            //           child: Column(
+            //             children: [
+            //               Padding(
+            //                 padding: const EdgeInsets.all(8.0),
+            //                 child: ListTile(
+            //                   tileColor: Colors.white,
+            //                   minVerticalPadding: 10,
+            //                   leading: CircleAvatar(
+            //                     backgroundColor: Colors.white,
+            //                     child: Icon(
+            //                       Icons.notifications,
+            //                       color: Colors.black,
+            //                     ),
+            //                   ),
+            //                   title: Text(
+            //                     StaticDB.alerts['alerts'][index]['title'],
+            //                     style: TextStyle(
+            //                         fontSize: 16,
+            //                         color: Colors.black,
+            //                         fontWeight: FontWeight.normal),
+            //                   ),
+            //                   onTap: () {
+            //                     Navigator.push(
+            //                         context,
+            //                         MaterialPageRoute(
+            //                             builder: (context) =>
+            //                                 NewsDetail(index: index, type: "",)));
+            //                   },
+            //                 ),
+            //               ),
+            //               const Divider(
+            //                 height: 1,
+            //               )
+            //             ],
+            //           ));
+            //     },
+            //   ),
       ),
     );
   }
