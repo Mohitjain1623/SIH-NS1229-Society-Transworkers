@@ -50,7 +50,7 @@ class _InterestPageState extends State<InterestPage> {
               ],
             ),
             onTap: () async {
-              if (selectedCount > 2) {
+              if (selectedCount >= 1) {
                 Constants.setInterests(true, arr);
                 setState(() {
                   // await Navigator.pushReplacement(context,
@@ -63,7 +63,7 @@ class _InterestPageState extends State<InterestPage> {
                 });
               }else{
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text('Please select atleast 2 interests'),
+                  content: Text('Please select atleast 1 interests'),
                   backgroundColor: Colors.red,
                 ));
               }
@@ -85,7 +85,7 @@ class _InterestPageState extends State<InterestPage> {
                   padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
                   child: SizedBox(
                     child: Text(
-                      "Select Ministries(Min 2)",
+                      "Select Ministries(Min 1)",
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           fontSize: 22,

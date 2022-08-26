@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Constants{
@@ -18,5 +20,13 @@ class Constants{
     final SharedPreferences prefsInterest = await SharedPreferences.getInstance();
     await prefsInterest.setBool('isLangSelected', val);
     await prefsInterest.setInt("language", langIndex);
+  }
+
+  static setRssFeed(bool val, List<dynamic> rssFeed, int lang, String language) async {
+    final SharedPreferences prefsInterest = await SharedPreferences.getInstance();
+    await prefsInterest.setBool('isRssFeedFetched', val);
+    await prefsInterest.setString("rssFeed", jsonEncode(rssFeed[lang]));
+    await prefsInterest.setInt("lang", lang);
+    await prefsInterest.setString("languages", language);
   }
 }

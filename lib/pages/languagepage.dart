@@ -50,7 +50,7 @@ class _LanguagePageState extends State<LanguagePage> {
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.45,
-                          height: MediaQuery.of(context).size.height * 0.15,
+                          height: MediaQuery.of(context).size.height * 0.22,
                           child: Card(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
@@ -116,7 +116,7 @@ class _LanguagePageState extends State<LanguagePage> {
                                     padding: const EdgeInsets.all(45.0),
                                     child: Column(
                                       children: [
-                                        // Icon(Icons.),
+                                        Image.network(StaticDB.langImage['langImage'][index]['imageURL'],height: 50,),
                                         Text(
                                           StaticDB.pressRelease['rss']['channel'][index]['language'].toUpperCase(),
                                           softWrap: true,

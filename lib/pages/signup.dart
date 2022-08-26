@@ -30,14 +30,18 @@ class _SignUpPageState extends State<SignUpPage> {
           stateTextWithIcon = ButtonState.loading;
           setState(() {});
           await Future.delayed(Duration(milliseconds: 2000));
-          number = "";
+          // number = "";
 
           FocusScopeNode currentFocus = FocusScope.of(context);
           currentFocus.unfocus();
-          // await ApiCalling()
-          //     .createUser(username, email, number, password)
-          //     .then((value) async {
-            // if (value == "OK") {
+          print("username: $username");
+          print("email: $email");
+          print("number: $number");
+          print("password: $password");
+          await ApiCalling()
+              .createUser(username, email, number, password)
+              .then((value) async {
+            if (value == "200") {
               setState(() {});
               stateTextWithIcon = ButtonState.success;
               await Future.delayed(Duration(milliseconds: 1000));
@@ -47,11 +51,11 @@ class _SignUpPageState extends State<SignUpPage> {
                     builder: (context) => DashBoard(),
                   ));
               setState(() {});
-            // } else {
-            //   stateTextWithIcon = ButtonState.fail;
-            //   await Future.delayed(Duration(milliseconds: 1000));
-            // }
-          // });
+            } else {
+              stateTextWithIcon = ButtonState.fail;
+              await Future.delayed(Duration(milliseconds: 1000));
+            }
+          });
 
           stateTextWithIcon = ButtonState.idle;
 
@@ -117,6 +121,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         if (value!.isEmpty || value.length < 3) {
                           return "Enter Username";
                         }
+                        username = value;
                         return null;
                       },
                       // onChanged: (value) {
@@ -150,6 +155,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         if (value!.isEmpty || value.length < 10) {
                           return "Enter Email";
                         }
+                        email = value;
                         return null;
                       },
                       // onChanged: (value) {
@@ -183,6 +189,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         if (value!.isEmpty || value.length < 10) {
                           return "Enter Phone Number";
                         }
+                        number = value;
                         return null;
                       },
                       onChanged: (value) {
@@ -223,6 +230,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         } else if (value.length < 6) {
                           return "Password should contain atleast 6 character";
                         }
+                        password = value;
                         return null;
                       },
                     ),

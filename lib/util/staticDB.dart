@@ -2077,624 +2077,849 @@ class StaticDB {
   static final Map releaseAug = {
     "Prime Minister's Office": [
       {
+        "title": "PM addresses Grand Finale of Smart India Hackathon 2022",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854518"
+      },
+      {
+        "title":
+            "English rendering of PM’s address at National Labour Conference of Labour Ministers of all States and UTs via Video Conferencing",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854453"
+      },
+      {
+        "title":
+            "PM addresses National Labour Conference of Labour Ministers of all States and UTs",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854431"
+      },
+      {
+        "title": "PM to visit Gujarat on 27-28 August",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854365"
+      },
+      {
+        "title":
+            "PM condoles the loss of lives due to road accident in Tumakuru district, Karnataka",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854265"
+      },
+      {
+        "title":
+            "English rendering of PM’s address at the Homi Bhabha Cancer Hospital & Research Centre in Mohali, Punjab",
+        "date": "Posted On: 24 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854160"
+      },
+      {
+        "title":
+            "PM dedicates Homi Bhabha Cancer Hospital & Research Centre to the Nation at Sahibzada Ajit Singh Nagar (Mohali)",
+        "date": "Posted On: 24 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854147"
+      },
+      {
+        "title":
+            "English rendering of PM's Address at the inaugural event of Amrita Hospital in Faridabad, Haryana",
+        "date": "Posted On: 24 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854096"
+      },
+      {
+        "title": "PM inaugurates state-of-the-art Amrita Hospital in Faridabad",
+        "date": "Posted On: 24 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854080"
+      },
+      {
+        "title":
+            "PM to address National Labour Conference of Labour Ministers of all States and UTs on 25th August",
+        "date": "Posted On: 23 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853975"
+      },
+      {
+        "title":
+            "PM to address Grand Finale of Smart India Hackathon 2022 on 25th August",
+        "date": "Posted On: 23 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853862"
+      },
+      {
+        "title":
+            "PM congratulates Indian wrestling team on winning 16 medals at the U20 World Championships",
+        "date": "Posted On: 22 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853712"
+      },
+      {
+        "title": "PM to visit Haryana and Punjab on 24th August",
+        "date": "Posted On: 22 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853546"
+      },
+      {
+        "title": "CM of Andhra Pradesh calls on PM",
+        "date": "Posted On: 22 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853534"
+      },
+      {
+        "title":
+            "PM wishes Japanese PM H. E. Fumio Kishida a speedy recovery from COVID-19",
+        "date": "Posted On: 21 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853444"
+      },
+      {
+        "title":
+            "PM pays tributes to former PM Shri Rajiv Gandhi on his birth anniversary",
+        "date": "Posted On: 20 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853241"
+      },
+      {
+        "title":
+            "PM condoles loss of lives due to a road accident in Pali, Rajasthan",
+        "date": "Posted On: 19 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853242"
+      },
+      {
+        "title":
+            "English rendering of PM’s video message at Har Ghar Jal Utsav in Panaji, Goa",
+        "date": "Posted On: 19 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853111"
+      },
+      {
+        "title":
+            "PM addresses the Har Ghar Jal Utsav under Jal Jeevan Mission via a video message",
+        "date": "Posted On: 19 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853099"
+      },
+      {
+        "title": "PM greets people on Janmashtami",
+        "date": "Posted On: 19 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853027"
+      },
+      {
+        "title": "PM condoles the demise of Shri Kuldeep Raj Gupta",
+        "date": "Posted On: 18 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853007"
+      },
+      {
+        "title": "PM meets former President Shri Ram Nath Kovind",
+        "date": "Posted On: 18 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852986"
+      },
+      {
+        "title": "CM of Tamil Nadu, MK Stalin calls on PM",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852630"
+      },
+      {
+        "title":
+            "PM expresses happiness after the success of Aspirational Districts program",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852511"
+      },
+      {
+        "title": "PM invites ideas and inputs for Mann Ki Baat",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852411"
+      },
+      {
+        "title":
+            "Telephone Conversation between Prime Minister and H.E. Emmanuel Macron, President of France",
+        "date": "Posted On: 16 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852393"
+      },
+      {
+        "title": "PM pays tribute to Atal Bihari Vajpayee on his Punya Tithi",
+        "date": "Posted On: 16 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852195"
+      },
+      {
+        "title": "PM greets people on Parsi New Year",
+        "date": "Posted On: 16 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852137"
+      },
+      {
+        "title":
+            "PM thanks World Leaders for their greetings on 76th Independence Day",
+        "date": "Posted On: 15 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852116"
+      },
+      {
         "title": "PM remembers Sri Aurobindo on his Jayanti",
-        "date": "Posted on: 15 Aug 2022",
+        "date": "Posted On: 15 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852040"
       },
       {
         "title":
             "The Prime Minister, Shri Narendra Modi addressed the nation from the ramparts of the Red Fort on the 76th Independence Day",
-        "date": "Posted on: 15 Aug 2022",
+        "date": "Posted On: 15 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852024"
       },
       {
+        "title":
+            "English Rendering of Prime Minister's address from the ramparts of Red Fort on 76th Independence Day",
+        "date": "Posted On: 15 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851994"
+      },
+      {
         "title": "PM greets people on Independence Day",
-        "date": "Posted on: 15 Aug 2022",
+        "date": "Posted On: 15 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851921"
       },
       {
         "title":
             "PM lauds the passion of Dr. H.V. Hande who saved the 75 year old newspaper announcing the Independence",
-        "date": "Posted on: 14 Aug 2022",
+        "date": "Posted On: 14 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851917"
       },
       {
         "title":
             "PM shares instances of enthusiasm towards the Har Ghar Tiranga Movement",
-        "date": "Posted on: 14 Aug 2022",
+        "date": "Posted On: 14 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851767"
       },
       {
         "title":
             "PM condoles passing away of noted stock investor Rakesh Jhunjhunwala",
-        "date": "Posted on: 14 Aug 2022",
+        "date": "Posted On: 14 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851675"
       },
       {
         "title":
             "PM pays homage to all those who lost their lives during Partition",
-        "date": "Posted on: 14 Aug 2022",
+        "date": "Posted On: 14 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851650"
       },
       {
         "title":
             "PM expresses happiness and pride over the amazing response to Har Ghar Tiranga Movement",
-        "date": "Posted on: 13 Aug 2022",
+        "date": "Posted On: 13 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851618"
       },
       {
+        "title":
+            "English rendering of PM's Interaction with Indian players for Birmingham Commonwealth Games 2022",
+        "date": "Posted On: 13 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851511"
+      },
+      {
         "title": "PM felicitates Indian Contingent for Commonwealth Games 2022",
-        "date": "Posted on: 13 Aug 2022",
+        "date": "Posted On: 13 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851485"
       },
       {
         "title": "PM calls on Vice President",
-        "date": "Posted on: 12 Aug 2022",
+        "date": "Posted On: 12 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851401"
       },
       {
         "title":
             "PM shares glimpses of Har Ghar Tiranga spirit from all over India",
-        "date": "Posted on: 12 Aug 2022",
+        "date": "Posted On: 12 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851396"
       },
       {
         "title": "PM greets on World Sanskrit Day",
-        "date": "Posted on: 12 Aug 2022",
+        "date": "Posted On: 12 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851392"
       },
       {
         "title":
             "PM pays condolences after the demise of Kannada singer Shivamogga Subbanna",
-        "date": "Posted on: 12 Aug 2022",
+        "date": "Posted On: 12 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851191"
       },
       {
         "title":
             "PM lauds the efforts of Elephant conservationists on World Elephant Day",
-        "date": "Posted on: 12 Aug 2022",
+        "date": "Posted On: 12 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851126"
       },
       {
         "title":
             "PM condoles deaths in an accident in Yamuna River at Banda, Uttar Pradesh",
-        "date": "Posted on: 11 Aug 2022",
+        "date": "Posted On: 11 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851107"
       },
       {
         "title": "PM lauds people's enthusiasm for Har Ghar Tiranga Abhiyan",
-        "date": "Posted on: 11 Aug 2022",
+        "date": "Posted On: 11 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851024"
       },
       {
         "title":
             "PM congratulates Shri Jagdeep Dhankhar on taking oath as Vice President of India",
-        "date": "Posted on: 11 Aug 2022",
+        "date": "Posted On: 11 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850859"
       },
       {
         "title":
             "PM celebrates Raksha Bandhan with youngsters at his residence in New Delhi",
-        "date": "Posted on: 11 Aug 2022",
+        "date": "Posted On: 11 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850858"
       },
       {
         "title": "PM greets everyone on the special occasion of Raksha Bandhan",
-        "date": "Posted on: 11 Aug 2022",
+        "date": "Posted On: 11 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850736"
       },
       {
         "title":
             "PM congratulates India B team (Men's) and India A team (Women's) for winning the Bronze Medal at the 44th Chess Olympiad in Chennai",
-        "date": "Posted on: 10 Aug 2022",
+        "date": "Posted On: 10 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850636"
       },
       {
         "title":
             "PM lauds the efforts of Lion conservationists on the occasion of World Lion Day",
-        "date": "Posted on: 10 Aug 2022",
+        "date": "Posted On: 10 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850628"
       },
       {
+        "title":
+            "English rendering of PM’s address at the inauguration of 2G Ethanol Plant in Panipat",
+        "date": "Posted On: 10 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850617"
+      },
+      {
+        "title": "English rendering of PM's remarks at Surat Tiranga Yatra",
+        "date": "Posted On: 10 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850613"
+      },
+      {
         "title": "PM addresses the Surat Tiranga Yatra",
-        "date": "Posted on: 10 Aug 2022",
+        "date": "Posted On: 10 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850606"
       },
       {
         "title": "PM dedicates 2G Ethanol Plant in Panipat",
-        "date": "Posted on: 10 Aug 2022",
+        "date": "Posted On: 10 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850585"
       },
       {
         "title":
             "PM Anguished by the loss of lives due to a tragic accident in West Bengal",
-        "date": "Posted on: 09 Aug 2022",
+        "date": "Posted On: 09 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850345"
       },
       {
         "title":
             "PM congratulates all those who took oath as Ministers in Maharashtra Government",
-        "date": "Posted on: 09 Aug 2022",
+        "date": "Posted On: 09 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850191"
       },
       {
         "title":
             "PM recalls the sacrifices of Hazrat Imam Hussain (AS) on the day of Ashura",
-        "date": "Posted on: 09 Aug 2022",
+        "date": "Posted On: 09 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850148"
       },
       {
         "title":
             "PM remembers all those who took part in Quit India Movement under Bapu's leadership",
-        "date": "Posted on: 09 Aug 2022",
+        "date": "Posted On: 09 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850130"
       },
       {
         "title":
+            "English rendering of PM's speech at farewell ceremony of Vice President Shri Venkaiah Naidu in Parliament House",
+        "date": "Posted On: 08 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850099"
+      },
+      {
+        "title":
             "PM attends farewell function of VIce President Shri M. Venkaiah Naidu at Balayogi Auditorium",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850060"
       },
       {
         "title":
             "PM feels proud of Indian Men's Hockey Team for winning Silver Medal",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850035"
       },
       {
         "title":
             "PM congratulates Sharath Kamal for winning Gold Medal in Men's Singles Table Tennis",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850026"
       },
       {
         "title":
             "PM congratulates Satwik Sairaj Rankireddy and Chirag Shetty for clinching Gold Medal in Men's Doubles Badminton",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850022"
       },
       {
         "title":
             "PM admires the tenacity and dedication of Table Tennis player, Sathiyan Gnanasekaran for winning the Bronze Medal",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850020"
       },
       {
         "title":
             "PM congratulates Lakshya Sen for winning Gold medal in Badminton at CWG 2022",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849995"
       },
       {
         "title": "PM to dedicate 2G Ethanol Plant in Panipat on 10th August",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849922"
       },
       {
         "title":
             "PM congratulates P V Sindhu on winning Gold medal in Badminton at CWG 2022",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849839"
       },
       {
         "title":
+            "English rendering of PM’s address during the farewell of Vice President Shri M. Venkaiah Naidu in Rajya Sabha",
+        "date": "Posted On: 08 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849750"
+      },
+      {
+        "title":
             "PM bids farewell to Vice President Shri M. Venkaiah Naidu in Rajya Sabha",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849741"
       },
       {
         "title":
             "PM condoles loss of lives due to a stampede at the Khatu Shyamji Temple complex in Sikar Rajasthan",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849601"
       },
       {
         "title":
             "PM lauds the grit and tenacity of Sharath Kamal and Sreeja Akula for winning the Gold Medal in Mixed Doubles Table Tennis",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849602"
       },
       {
         "title":
             "PM congratulates Srikanth Kidambi for winning Bronze Medal in CWG 2022",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849603"
       },
       {
         "title":
             "PM wishes the best to the team members of Women's cricket team for winning Silver Medal at CWG 2022",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849600"
       },
       {
         "title":
             "PM feels proud of Treesa Jolly and Gayatri Gopichand for winning the Bronze Medal in Badminton Doubles",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849597"
       },
       {
         "title":
             "PM congratulates Sagar Ahlawat for winning Silver Medal at CWG in boxing",
-        "date": "Posted on: 08 Aug 2022",
+        "date": "Posted On: 08 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849594"
       },
       {
         "title":
             "PM congratulates Saurav Ghosal and Dipika Pallikal for winning the Bronze Medal in Squash Mixed Doubles event",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849592"
       },
       {
         "title":
             "PM congratulates Sharath Kamal and Sathiyan Gnanasekaran for winning Silver Medal in Men's Double Table Tennis",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849590"
       },
       {
         "title":
             "PM congratulates Nikhat Zareen for winning the Gold medal in Women’s 50kg Boxing at CWG 2022",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849494"
       },
       {
         "title":
             "PM congratulates Annu Rani for winning the Bronze medal in Women’s Javelin Throw at CWG 2022",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849429"
       },
       {
         "title":
             "PM congratulates Sandeep Kumar for winning the Bronze medal in Men’s 10,000m Race Walk at CWG 2022",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849428"
       },
       {
         "title":
             "PM extends best wishes to Abdulla Aboobacker on winning silver in the Triple Jump event",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849427"
       },
       {
         "title":
             "PM congratulates Eldhose Paul for clinching Gold Medal in Athletics Men's Triple Jump",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849426"
       },
       {
         "title":
             "PM congratulates Amit Panghal for winning the Gold medal in 51 kg Men’s Boxing at CWG 2022",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849423"
       },
       {
         "title":
             "PM congratulates Nitu Ghanghas for winning the Gold medal in 48 kg Women’s Boxing at CWG 2022",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849422"
       },
       {
         "title":
             "PM expresses pride after Indian Women’s Hockey Team win the Bronze medal at CWG 2022",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849419"
       },
       {
         "title":
             "PM pays tribute to India's rich cultural diversity on the occasion of National Handloom Day",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849354"
       },
       {
         "title":
             "PM encourages wrestler, Pooja Gehlot for her bright future ahead",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849249"
       },
       {
         "title":
             "PM congratulates Sonal Patel for winning the Bronze Medal in Para Table Tennis",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849246"
       },
       {
         "title":
             "PM extends best wishes to the Bhavina Patel for clinching the prestigious Gold Medal in Para Table Tennis",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849240"
       },
       {
         "title":
             "PM congratulates Indian boxer, Mohammad Hussamuddin for winning the Bronze Medal in Men's 57 Kg event",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849244"
       },
       {
         "title":
             "PM congratulates Rohit Tokas on winning the Bronze Medal in Boxing",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849242"
       },
       {
         "title":
             "PM congratulates wrestler, Pooja Sihag on winning Bronze Medal in Women's 76 Kg Wrestling",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849234"
       },
       {
         "title":
             "PM extends best wishes to the wrestler, Deepak Nehra on winning Bronze Medal in Men's Freestyle 97 Kg wrestling",
-        "date": "Posted on: 07 Aug 2022",
+        "date": "Posted On: 07 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849239"
       },
       {
         "title":
             "PM congratulates Naveen Kumar for winning a Gold Medal in Men's Freestyle 74 Kg wrestling",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849233"
       },
       {
         "title":
             "PM congratulates wrestler, Vinesh Phogat on winning Gold Medal in Women's 53 Kg Wrestling",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849232"
       },
       {
         "title":
             "PM congratulates Ravi Dahiya for clinching Gold Medal in Men's freestyle 57 Kg wrestling",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849231"
       },
       {
         "title":
             "PM congratulates Pooja Gehlot on winning Bronze Medal in Women's 50 Kg wrestling",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849230"
       },
       {
         "title":
             "PM congratulates Jaismine for winning Bronze Medal in women's 60 KG Boxing",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849208"
       },
       {
         "title":
             "PM congratulates Lawn Bowl Men's team for clinching Silver Medal",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849207"
       },
       {
         "title":
             "PM congratulates Shri Jagdeep Dhankhar on being elected as Vice President",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849206"
       },
       {
         "title":
             "PM congratulates Avinash Sable on winning Silver Medal in the Men's 3000m Steeplechase event",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849133"
       },
       {
         "title":
             "PM congratulates race walking champion, Priyanka Goswami for winning the coveted Silver Medal",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849132"
       },
       {
         "title": "PM votes in the 2022 Vice President election",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849054"
       },
       {
         "title":
             "PM congratulates Mohit Grewal for winning the Bronze medal in 125 kg wrestling at CWG 2022",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849015"
       },
       {
         "title":
             "PM extends best wishes to the wrestler, Divya for winning Bronze medal in Women's 68 KG wrestling at Birmingham 2022 Commonwealth Games",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848946"
       },
       {
         "title":
             "PM extends best wishes to wrestler, Deepak Punia on winning Gold Medal at Birmingham 2022 Commonwealth Games",
-        "date": "Posted on: 06 Aug 2022",
+        "date": "Posted On: 06 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848947"
       },
       {
         "title":
             "PM congratulates Bajrang Puniya for winning his third consecutive Commonwealth Games Medal",
-        "date": "Posted on: 05 Aug 2022",
+        "date": "Posted On: 05 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848959"
       },
       {
         "title":
             "PM congratulates Anshu Malik for winning the Silver medal in 57 kg wrestling at CWG 2022",
-        "date": "Posted on: 05 Aug 2022",
+        "date": "Posted On: 05 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848957"
       },
       {
         "title":
             "PM congratulates Sakshi Malik for winning the Gold medal in 62 kg wrestling at CWG 2022",
-        "date": "Posted on: 05 Aug 2022",
+        "date": "Posted On: 05 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848955"
       },
       {
         "title":
             "Phone call between Prime Minister Shri Narendra Modi and H. E. Mr. Ferdinand Marcos Jr., President of the Philippines",
-        "date": "Posted on: 05 Aug 2022",
+        "date": "Posted On: 05 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848688"
       },
       {
         "title":
             "PM congratulates Sudhir for winning Gold Medal in para powerlifting men's heavyweight event at Commonwealth Games",
-        "date": "Posted on: 05 Aug 2022",
+        "date": "Posted On: 05 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848574"
       },
       {
         "title":
             "PM congratulates M. Sreeshankar for winning Silver medal in Men’s long jump at CWG 2022",
-        "date": "Posted on: 05 Aug 2022",
+        "date": "Posted On: 05 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848573"
       },
       {
         "title":
             "English rendering of PM's address at the foundation stone laying ceremony of various projects of Shrimad Rajchandra Mission, Dharampur, Gujarat",
-        "date": "Posted on: 04 Aug 2022",
+        "date": "Posted On: 04 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848494"
       },
       {
         "title":
             "PM lays foundation stone of various projects of Shrimad Rajchandra Mission, Dharampur, Gujarat",
-        "date": "Posted on: 04 Aug 2022",
+        "date": "Posted On: 04 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848430"
       },
       {
         "title":
             "PM congratulates Tejaswin Shankar for winning India’s first High Jump medal",
-        "date": "Posted on: 04 Aug 2022",
+        "date": "Posted On: 04 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848149"
       },
       {
         "title":
             "PM congratulates Gurdeep Singh on winning the Bronze medal in weightlifting at the CWG 2022 in Birmingham",
-        "date": "Posted on: 04 Aug 2022",
+        "date": "Posted On: 04 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848153"
       },
       {
         "title":
             "PM congratulates Judo Player, Tulika Maan on winning Silver Medal at Birmingham CWG 2022.",
-        "date": "Posted on: 03 Aug 2022",
+        "date": "Posted On: 03 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848154"
       },
       {
         "title":
             "PM congratulates Saurav Ghosal for winning bronze medal in Birmingham CWG 2022",
-        "date": "Posted on: 03 Aug 2022",
+        "date": "Posted On: 03 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848152"
       },
       {
         "title":
             "PM expresses happiness after 10 more wetlands designated as Ramsar sites in country",
-        "date": "Posted on: 03 Aug 2022",
+        "date": "Posted On: 03 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848150"
       },
       {
         "title": "PM congratulates Lovepreet Singh for winning Bronze medal",
-        "date": "Posted on: 03 Aug 2022",
+        "date": "Posted On: 03 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847982"
       },
       {
         "title":
             "PM to inaugurate and lay the foundation stone of various projects of Shrimad Rajchandra Mission, Dharampur on 4th August",
-        "date": "Posted on: 03 Aug 2022",
+        "date": "Posted On: 03 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847903"
       },
       {
         "title":
             "PM congratulates badminton team for winning Silver medal in Birmingham CWG",
-        "date": "Posted on: 03 Aug 2022",
+        "date": "Posted On: 03 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847645"
       },
       {
         "title":
             "List of Outcomes: Official visit of President of Maldives to India",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847628"
       },
       {
         "title":
             "India-Maldives Joint Statement during the Official Visit of President of Maldives to India",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847627"
       },
       {
         "title":
             "PM congratulates weightlifter, Vikas Thakur for winning Silver Medal at Commonwealth Games 2022",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847625"
       },
       {
         "title":
             "PM congratulates G. Sathiyan, Harmeet Desai, Sharat Kamal and Sanil Shetty for winning Gold medal in Table Tennis at CWG 2022",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847606"
       },
       {
         "title":
             "PM lauds Lovely Choubey, Pinki Singh, Nayanmoni Saikia and Rupa Rani Tirkey for winning Gold Medal in Lawn Bowls at CWG 2022",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847565"
       },
       {
         "title":
             "PM condoles the loss of lives due to a van getting electrocuted in Sitalkuchi, West Bengal",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847487"
       },
       {
+        "title":
+            "English translation of Press Statement by Prime Minister, Shri Narendra Modi during the official visit of President of Maldives to India",
+        "date": "Posted On: 02 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847445"
+      },
+      {
         "title": "PM congratulates Harjinder Kaur for winning Bronze medal",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847230"
       },
       {
         "title": "PM lauds 6 billion UPI transactions in July",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847228"
       },
       {
         "title":
             "PM urges citizens to change their social media DP to Tricolour",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847211"
       },
       {
         "title": "PM pays homage to Pingali Venkayya on his birth anniversary",
-        "date": "Posted on: 02 Aug 2022",
+        "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847210"
       },
       {
         "title":
             "PM congratulates Vijay Kumar Yadav for winning Bronze medal in Judo at CWG 2022",
-        "date": "Posted on: 01 Aug 2022",
+        "date": "Posted On: 01 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847185"
       },
       {
         "title":
             "PM congratulates Shushila Devi Likmabam for winning Silver medal in Women's Judo at Commonwealth Games 2022",
-        "date": "Posted on: 01 Aug 2022",
+        "date": "Posted On: 01 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847184"
       },
       {
         "title":
             "PM condoles the loss of lives due to fire at a hospital in Jabalpur, MP",
-        "date": "Posted on: 01 Aug 2022",
+        "date": "Posted On: 01 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847142"
       },
       {
         "title":
             "PM congratulates Indian Wrestling contingent for their excellent performances at Cadet (U-17) World Wrestling Championship",
-        "date": "Posted on: 01 Aug 2022",
+        "date": "Posted On: 01 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847098"
       },
       {
         "title":
             "PM congratulates weightlifter, Achinta Sheuli on winning Gold Medal at Commonwealth Games 2022",
-        "date": "Posted on: 01 Aug 2022",
+        "date": "Posted On: 01 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1846833"
       }
     ],
     "President's Secretariat": [
       {
-        "title": "President's Greetings on The Eve of Parsi New Year",
+        "title": "NO CHANGE OF GUARD CEREMONY ON AUGUST 27",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854367"
+      },
+      {
+        "title":
+            "By working with passion and pride, you can ensure that the India of 2047 will be much more prosperous, strong and happy: President Murmu to IAS officers of 2020 batch",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854323"
+      },
+      {
+        "title":
+            "PRESIDENT OF INDIA PAYS HOMAGE TO DR SHANKER DAYAL SHARMA ON HIS BIRTH ANNIVERSARY",
+        "date": "Posted On: 19 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853096"
+      },
+      {
+        "title": "President of India's greetings on the eve of Janmashtami",
+        "date": "Posted On: 18 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852873"
+      },
+      {
+        "title": "President’s Greetings on The Eve of Parsi New Year",
         "date": "Posted On: 15 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852089"
       },
       {
         "title":
-            "ADDRESS TO THE NATION BY HON'BLE PRESIDENT OF INDIA SMT. DROUPADI MURMU ON THE EVE OF THE 76TH INDEPENDENCE DAY",
+            "ADDRESS TO THE NATION BY HON’BLE PRESIDENT OF INDIA SMT. DROUPADI MURMU ON THE EVE OF THE 76TH INDEPENDENCE DAY",
         "date": "Posted On: 14 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851827"
       },
@@ -2733,6 +2958,17 @@ class StaticDB {
       }
     ],
     "Vice President's Secretariat": [
+      {
+        "title":
+            "A spinally strong, fair and independent Justice System is safest guarantee to flourishing of democratic values – Vice President",
+        "date": "Posted On: 22 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853650"
+      },
+      {
+        "title": "Vice President greets the nation on the eve of Janmashtami",
+        "date": "Posted On: 18 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852893"
+      },
       {
         "title": "Vice President greets the nation on the eve of Navroz",
         "date": "Posted On: 15 Aug 2022",
@@ -2808,6 +3044,30 @@ class StaticDB {
     "Cabinet": [
       {
         "title":
+            "Cabinet approves widening access of the Traditional Knowledge Digital Library (TKDL) database to users, besides patent offices",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852528"
+      },
+      {
+        "title":
+            "Cabinet approves signing of Contract between India and France to support ITF activities on the Indian Transport Sector",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852524"
+      },
+      {
+        "title":
+            "Cabinet approves enhancement in the corpus of Emergency Credit Line Guarantee Scheme for increasing the limit of admissible guarantees",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852527"
+      },
+      {
+        "title":
+            "Cabinet approves Interest subvention of 1.5% per annum on Short Term Agriculture Loan upto Rupees Three lakh",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852523"
+      },
+      {
+        "title":
             "Cabinet approves continuation of Pradhan Mantri Awas Yojana-Urban (PMAY-U) - “Housing for All” Mission up to 31st December 2024.",
         "date": "Posted On: 10 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850679"
@@ -2828,6 +3088,12 @@ class StaticDB {
     "Cabinet Committee on Economic Affairs (CCEA)": [
       {
         "title":
+            "Cabinet approves amendment to export policy for Wheat or Meslin Flour",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854352"
+      },
+      {
+        "title":
             "In another farmer’s friendly step, Government approves Fair and Remunerative Price of sugarcane payable by Sugar Mills to sugarcane farmers for sugar season 2022-23",
         "date": "Posted On: 03 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847997"
@@ -2838,45 +3104,53 @@ class StaticDB {
         "title":
             "New Headquarters Office Building of Central Council for Research in Siddha inaugurated",
         "date": "Posted On: 13 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851545"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1851545"
       },
       {
         "title":
             "MoU signed between Ministry of Ayush and Ministry of Electronics and Information Technology (MeitY)",
         "date": "Posted On: 12 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851293"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1851293"
       },
       {
         "title": "New Ayush wings in Defence and Railway Hospitals",
         "date": "Posted On: 05 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848810"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1848810"
       },
       {
         "title": "Pharmacopoeia Commission for Indian Medicine",
         "date": "Posted On: 05 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848809"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1848809"
       },
       {
         "title": "Quality Control of Ayush Drugs",
         "date": "Posted On: 02 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847448"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1847448"
       },
       {
         "title":
             "Budget Allocation and Utilization of Funds under National Ayush Mission",
         "date": "Posted On: 02 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847447"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1847447"
       },
       {
         "title": "Development of Ayush Entrepreneurship",
         "date": "Posted On: 02 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847444"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1847444"
       },
       {
         "title":
             "Ensure time-bound Infrastructure development of Ayush National Institutes/Central Councils projects: Shri Sarbananda Sonowal",
         "date": "Posted On: 02 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847401"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1847401"
       }
     ],
     "Department Of Space": [
@@ -2884,22 +3158,31 @@ class StaticDB {
         "title":
             "Government says, India’s satellite-based navigation system, NavIC, is as good as GPS of the United States in terms of position accuracy and availability in its service region",
         "date": "Posted On: 04 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848313"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1848313"
       },
       {
         "title":
             "Union Minister Dr Jitendra Singh said, North Eastern Space Applications Centre (NESAC), Shillong, will execute 110 projects in Eight North Eastern States by 2024",
         "date": "Posted On: 04 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848311"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1848311"
       },
       {
         "title":
             "Union Minister Dr Jitendra Singh says, six start-ups were selected and supported by ISRO with a grant-in-aid of maximum of Rs 50 lakhs each in areas like geo spatial information, propulsion and Robotics/ AR/VR",
         "date": "Posted On: 03 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847770"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1847770"
       }
     ],
     "Election Commission": [
+      {
+        "title":
+            "ECI’s push to inclusive and accessible electoral processes; holds consultation with DEPwD to develop robust partnerships",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852704"
+      },
       {
         "title":
             "ECI hosts virtual Asian Regional Forum meet on “Making our Elections Inclusive, Accessible and Participative”",
@@ -2926,6 +3209,36 @@ class StaticDB {
       }
     ],
     "Ministry of Agriculture & Farmers Welfare": [
+      {
+        "title":
+            "Union Agriculture Minister attends the convocation ceremony of Indian Veterinary Research Institute",
+        "date": "Posted On: 23 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853899"
+      },
+      {
+        "title":
+            "11th National Seed Congress inaugurated at Rajmata Vijayaraje Scindia Agricultural University, Gwalior",
+        "date": "Posted On: 21 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853456"
+      },
+      {
+        "title":
+            "Cabinet approves Interest subvention of 1.5% per annum on Short Term Agriculture Loan upto Rupees Three lakh",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852525"
+      },
+      {
+        "title":
+            "Fourth advance estimates for 2021-22 of major agriculture crops released",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852470"
+      },
+      {
+        "title":
+            "ICAR Series of 75 Lectures to commemorate Azadi Ka Amrit Mahotsav concludes with the speech of the Union Agriculture Minister",
+        "date": "Posted On: 16 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852369"
+      },
       {
         "title":
             "Big relief for livestock, Agriculture Minister Shri Tomar launches indigenous vaccine for Lumpy Skin disease",
@@ -2955,14 +3268,14 @@ class StaticDB {
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848721"
       },
       {
-        "title": "Smart Farming",
-        "date": "Posted On: 05 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848720"
-      },
-      {
         "title": "MSP benefits and its concerns",
         "date": "Posted On: 05 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848719"
+      },
+      {
+        "title": "Smart Farming",
+        "date": "Posted On: 05 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848720"
       },
       {
         "title": "Crop Insurance Schemes",
@@ -2981,14 +3294,14 @@ class StaticDB {
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847515"
       },
       {
-        "title": "Formation of FPOs",
-        "date": "Posted On: 02 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847511"
-      },
-      {
         "title": "Alternatives for Tobacco Farmers",
         "date": "Posted On: 02 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847512"
+      },
+      {
+        "title": "Formation of FPOs",
+        "date": "Posted On: 02 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847511"
       },
       {
         "title": "Research Institutes for Agricultural Growth",
@@ -3023,6 +3336,18 @@ class StaticDB {
       }
     ],
     "Ministry of Chemicals and Fertilizers": [
+      {
+        "title":
+            "Dr. Mansukh Mandaviya visits PGIMER Satellite Centre, Sangrur and reviews its progress",
+        "date": "Posted On: 21 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853432"
+      },
+      {
+        "title":
+            "Dr. Mansukh Mandaviya, Minister of Chemicals and Fertilizers reviews progress of Hindustan Urvarak & Rasayan Limited (HURL)-Sindri and Barauni projects and progress of Talcher Fertilizers Ltd. (TFL), country’s first urea...",
+        "date": "Posted On: 16 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852295"
+      },
       {
         "title":
             "Dr Mansukh Mandaviya reviews progress of Nano Urea production and sales for FY 2022-23",
@@ -3068,6 +3393,18 @@ class StaticDB {
     "Ministry of Civil Aviation": [
       {
         "title":
+            "Kolhapur Airport to get new terminal building with enhanced capacity and world-class facilities",
+        "date": "Posted On: 18 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852851"
+      },
+      {
+        "title":
+            "UDAN Scheme of Ministry of Civil Aviation completes 5 years of success",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852532"
+      },
+      {
+        "title":
             "Shri Jyotiraditya Scindia visits Maharani Lakshmi Bai Ki Chhatri, Gwalior to pay tribute to the martyrs of freedom struggle",
         "date": "Posted On: 14 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1851769"
@@ -3109,15 +3446,15 @@ class StaticDB {
       },
       {
         "title":
-            "Private players can use drones for delivery purposes in accordance with Drone Rules, 2021",
-        "date": "Posted On: 01 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847002"
-      },
-      {
-        "title":
             "DGCA ensures timely corrective action on deficiencies noted during oversight of certified operators and maintenance of record thereof",
         "date": "Posted On: 01 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847001"
+      },
+      {
+        "title":
+            "Private players can use drones for delivery purposes in accordance with Drone Rules, 2021",
+        "date": "Posted On: 01 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847002"
       },
       {
         "title": "No charge for web check-in in scheduled domestic airlines",
@@ -3126,6 +3463,24 @@ class StaticDB {
       }
     ],
     "Ministry of Coal": [
+      {
+        "title":
+            "Coal Sector Performance Outstanding Says Union Minister Shri Pralhad Joshi",
+        "date": "Posted On: 18 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852936"
+      },
+      {
+        "title":
+            "Shri Pralhad Joshi Urges Government and Private Sectors to Focus on Technology Solution to Enhance Coking Coal Production & Quality",
+        "date": "Posted On: 18 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852917"
+      },
+      {
+        "title":
+            "Ministry of Coal Signs 16 Agreements with Successful Bidders of Coal Mines",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852668"
+      },
       {
         "title":
             "Union Minister Shri Pralhad Joshi Hoists National Flag to Celebrate Har Ghar Tiranga Campaign",
@@ -3176,14 +3531,14 @@ class StaticDB {
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847895"
       },
       {
-        "title": "Shortage of Coal in Haryana",
-        "date": "Posted On: 03 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847891"
-      },
-      {
         "title": "Coal Extraction",
         "date": "Posted On: 03 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847893"
+      },
+      {
+        "title": "Shortage of Coal in Haryana",
+        "date": "Posted On: 03 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847891"
       },
       {
         "title": "Coal Production",
@@ -3206,15 +3561,15 @@ class StaticDB {
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847012"
       },
       {
+        "title": "Coal production by CIL",
+        "date": "Posted On: 01 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847011"
+      },
+      {
         "title":
             "Coal production and maintenance of post excavated areas in Meghalaya",
         "date": "Posted On: 01 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847010"
-      },
-      {
-        "title": "Coal production by CIL",
-        "date": "Posted On: 01 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847011"
       },
       {
         "title": "Coal production",
@@ -3223,6 +3578,36 @@ class StaticDB {
       }
     ],
     "Ministry of Commerce & Industry": [
+      {
+        "title":
+            "Cabinet approves amendment to export policy for Wheat or Meslin Flour",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854353"
+      },
+      {
+        "title":
+            "Shri Piyush Goyal asks IIFT to set up scholarships to ensure that no student is left behind for want of financial resources",
+        "date": "Posted On: 23 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853988"
+      },
+      {
+        "title":
+            "Shri Piyush Goyal releases report on ‘Restructuring of Department of Commerce'",
+        "date": "Posted On: 23 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853971"
+      },
+      {
+        "title":
+            "Shri Piyush Goyal inaugurates “Conclave on Public Procurement (Preference to Make in India) Order, 2017”",
+        "date": "Posted On: 23 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853869"
+      },
+      {
+        "title":
+            "Buyer Seller Meet organised by APEDA, Ministry of Commerce and Industry, to promote Dragon Fruit export",
+        "date": "Posted On: 19 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1853192"
+      },
       {
         "title":
             "Shri Piyush Goyal inaugurates Public Systems Lab (PSL) at IIT Delhi",
@@ -3372,6 +3757,12 @@ class StaticDB {
     "Ministry of Communications": [
       {
         "title":
+            "Gati-Shakti Vision for Telecom Infrastructure – Right of Way Rules Amended for Faster 5G Roll-out",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854472"
+      },
+      {
+        "title":
             "Department of Posts with its omnipresent network of 1.5 lakh Post Offices take “Har Ghar Tiranga” Programme to every citizen of country",
         "date": "Posted On: 11 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1850885"
@@ -3464,6 +3855,36 @@ class StaticDB {
     "Ministry of Consumer affairs, Food & Public Distribution": [
       {
         "title":
+            "All existing labs in India should be modernised and mapped for better utilisation of testing facilities, Says Shri Piyush Goyal",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854351"
+      },
+      {
+        "title":
+            "Centre amends the Legal Metrology (Packaged Commodities) Rules 2011 for ease of doing business and reducing the compliance burden for the garment or hosiery sold in loose or open",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854289"
+      },
+      {
+        "title":
+            "Centre asks edible oil producers to declare net quantity in volume without temperature in addition to declaring the same in weight",
+        "date": "Posted On: 25 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1854288"
+      },
+      {
+        "title":
+            "Centre invites consultations for declaring prime constituents of packaged commodities alongside Brand Name/Logo of the product",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852670"
+      },
+      {
+        "title":
+            "CCPA penalises Flipkart for selling sub-standard Pressure Cookers to consumers; to pay penalty of ₹ 1 Lakh",
+        "date": "Posted On: 17 Aug 2022",
+        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852508"
+      },
+      {
+        "title":
             "Centre walking towards modernizing foodgrain storage infrastructure in the country",
         "date": "Posted On: 16 Aug 2022",
         "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1852271"
@@ -3547,25 +3968,29 @@ class StaticDB {
       {
         "title": "Seventh meeting of Governing Council of NITI Aayog concludes",
         "date": "Posted On: 07 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849410"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1849410"
       },
       {
         "title":
             "NITI Aayog’s response to the statement of Shri K C Rao, CM Telangana",
         "date": "Posted On: 06 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1849139"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1849139"
       },
       {
         "title":
             "PM to Chair 7th Governing Council Meeting of NITI Aayog on 7 August",
         "date": "Posted On: 05 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1848659"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1848659"
       },
       {
         "title":
             "Atal Innovation Mission commences Call for Application for setting up Incubation Centres",
         "date": "Posted On: 02 Aug 2022",
-        "releaseURL": "https://pib.gov.in/PressReleasePage.aspx?PRID=1847275"
+        "releaseURL":
+            "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1847275"
       }
     ]
   };
@@ -4143,6 +4568,60 @@ class StaticDB {
         "name": "NITI Aayog",
         "imageURL":
             "https://iconape.com/wp-content/png_logo_vector/niti-logo.png"
+      }
+    ]
+  };
+
+  static final Map langImage = {
+    "langImage": [
+      {
+        "title": "hindi",
+        "imageURL":
+            "https://thumbs.dreamstime.com/b/creative-hindi-alphabet-texture-background-high-resolution-89696699.jpg"
+      },
+      {
+        "title": "telugu",
+        "imageURL":
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Telugu.svg/1200px-Telugu.svg.png"
+      },
+      {
+        "title": "tamil",
+        "imageURL":
+            "https://goachronicle.com/wp-content/uploads/2022/08/Tamil-oldest-language_8292.jpg"
+      },
+      {
+        "title": "punjabi",
+        "imageURL":
+            "https://thumbs.dreamstime.com/b/punjabi-language-black-colour-white-background-237442441.jpg"
+      },
+      {
+        "title": "bengali",
+        "imageURL":
+            "https://image.shutterstock.com/image-photo/language-bengali-written-on-blackboard-260nw-413965732.jpg"
+      },
+      {
+        "title": "kannada",
+        "imageURL":
+            "https://5.imimg.com/data5/LL/SL/MY-2577995/1200x630bb-500x500.jpg"
+      },
+      {
+        "title": "english",
+        "imageURL":
+            "https://previews.123rf.com/images/luplupme/luplupme1907/luplupme190700594/129453972-british-english-language-learning-class-vector-illustration-brittish-flag-logo-england-dictionary-bi.jpg"
+      },
+      {
+        "title": "gujrati",
+        "imageURL": "https://onlinetyping.in/images/gujarati.jpg"
+      },
+      {
+        "title": "assamese",
+        "imageURL":
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Oxomiya_in_Oxomiya_Lipi.svg/1200px-Oxomiya_in_Oxomiya_Lipi.svg.png"
+      },
+      {
+        "title": "malyalam",
+        "imageURL":
+            "https://img.onmanorama.com/content/dam/mm/en/kerala/top-news/images/2021/11/18/malayalam-language-font-alphabet.jpg"
       }
     ]
   };

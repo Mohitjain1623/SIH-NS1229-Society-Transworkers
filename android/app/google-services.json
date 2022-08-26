@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "810760287769",
+    "firebase_url": "https://pib-notification-default-rtdb.firebaseio.com",
+    "project_id": "pib-notification",
+    "storage_bucket": "pib-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810760287769:android:1da19111b4789ee80b5c88",
+        "android_client_info": {
+          "package_name": "com.example.pib_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810760287769-eaflciqolkmp3mj99tegcgvk1tagh2nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP8783Tq8awltrr9JLj_yClxiKZ2G09RE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810760287769-eaflciqolkmp3mj99tegcgvk1tagh2nf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

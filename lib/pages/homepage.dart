@@ -26,6 +26,7 @@ class HomePage extends StatefulWidget {
 List<String> arr = [];
 bool interestAvailable = false;
 int language = 0;
+String rssFeed = "";
 
 checkUserInterest() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -43,7 +44,8 @@ checkUserInterest() async {
 checkUserLanguage() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   if (prefs.getBool('isLangSelected') == true) {
-    language = prefs.getInt('language')!;
+    language = prefs.getInt('lang')!;
+
     return true;
   } else {
     language = 0;
@@ -52,6 +54,7 @@ checkUserLanguage() async {
 }
 
 class _HomePageState extends State<HomePage> {
+  SharedPreferences prefs = SharedPreferences.getInstance() as SharedPreferences;
   @override
   void initState() {
     checkUserInterest().then((value) {
@@ -225,19 +228,26 @@ class _HomePageState extends State<HomePage> {
                     shrinkWrap: true,
                     padding: const EdgeInsets.only(left: 15),
                     itemCount: StaticDB
-                        .pressRelease['rss']['channel'][language]['item'].length,
+                        .pressRelease['rss']['channel'][language]['item']
+                        .length,
                     itemBuilder: (context, int index) {
                       return
                           // index2 < 4 ?
                           InkWell(
-                        onTap: () {
+                        onTap: () async {
+                          SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          if (prefs.getBool('isRssFeedFetched') == true) {
+                            rssFeed = prefs.getString('languages')!;
+                          }
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => NewsDetail(
                                         index: index,
-                                        type: StaticDB.pressRelease['rss']
-                                            ['channel'][language]['language'],
+                                        // type: StaticDB.pressRelease['rss']
+                                        //     ['channel'][language]['language'],
+                                        type: rssFeed,
                                       )));
                         },
                         child: Container(
@@ -263,8 +273,8 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    StaticDB.pressRelease['rss']['channel'][language]
-                                        ['item'][index]['title'],
+                                    StaticDB.pressRelease['rss']['channel']
+                                        [language]['item'][index]['title'],
                                     softWrap: true,
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 3,

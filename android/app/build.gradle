@@ -23,6 +23,7 @@ if (flutterVersionName == null) {
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -49,6 +50,18 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+//Add Firebase Core//
+
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+
+//Add FCM//
+
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
 }
 
 flutter {

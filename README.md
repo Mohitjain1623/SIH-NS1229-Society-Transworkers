@@ -14,3 +14,16 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+Features:-
+    Press Information Bureau Images provided through RSS Feed
+    Choice of Ministry
+    Choice of Language
+    Video Gallery
+    Photo Gallery
+    Top Releases
+    Press Releases
+    Fact Check
+    E-Booklets
+    Social Media Links/Connectivity of PIB & PMO
+    Dynamic RSS Feed and Notifications(In Progress)

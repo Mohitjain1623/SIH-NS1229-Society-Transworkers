@@ -3,25 +3,23 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class ApiCalling {
-  final String _baseUrl = "https://pib-portal-api.herokuapp.com/";
+  final String _baseUrl = "https://pib-portal-api.herokuapp.com";
 
   final String signUp = '/api/user/register';
 
-  // Map<String, String> staticHeaders = {
-  //   "Accept": "application/json",
-  //   "content-type": "application/json",
-  //   "srcFrom": "App",
-  //   "eventName": "NA",
-  // };
+  Map<String, String> staticHeaders = {
+    "Accept": "application/json",
+    "content-type": "application/json",
+  };
 
-  Future<dynamic> createUser(String username, String email, String number,
-      String pass) {
+  Future<dynamic> createUser(
+      String username, String email, String number, String pass) {
     // staticHeaders['eventName'] = 'SIGNUP_REQUEST';
 
-    // Map<String, String> headers = {
-    //   "Accept": "application/json",
-    //   "content-type": "application/json"
-    // };
+    Map<String, String> headers = {
+      // "Accept": "application/json",
+      "Content-Type": "application/json"
+    };
     Map<String, dynamic> body = {
       "username": username,
       "email": email,
@@ -30,25 +28,26 @@ class ApiCalling {
     };
     var requestUrl = signUp;
 
-    var responseJson = postReq(requestUrl, body);
+    var responseJson = postReq(requestUrl, headers, body);
     // print('user data:  ' + responseJson.toString());
     return responseJson;
   }
 
-  Future<dynamic> postReq(String endPoint, Map body) async {
+  Future<dynamic> postReq(
+      String endPoint, Map<String, String> header, Map body) async {
     // debugPrint('ApiCalling:: postApi endpoint: ' + endPoint.toString());
     // debugPrint('ApiCalling:: postApi header: ' + header.toString());
 
     // debugPrint('ApiCalling:: postApi body: ' + body.toString(),
     //      wrapWidth: 1500);
 
-    var responseJson = await postReqChild(endPoint, body);
+    var responseJson = await postReqChild(endPoint, header, body);
 
     return responseJson;
   }
 
   Future<dynamic> postReqChild(
-      String endPoint, Map body) async {
+      String endPoint, Map<String, String> header, Map body) async {
     var responseJson;
 
     try {
@@ -103,7 +102,7 @@ class ApiCalling {
       case 400:
         throw Exception(response.body.toString());
       case 401:
-
+      case 404:
       case 403:
         throw Exception(response.body.toString());
       case 500:
