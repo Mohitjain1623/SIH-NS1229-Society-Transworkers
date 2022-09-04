@@ -54,7 +54,7 @@ checkUserLanguage() async {
 }
 
 class _HomePageState extends State<HomePage> {
-  SharedPreferences prefs = SharedPreferences.getInstance() as SharedPreferences;
+  // SharedPreferences prefs = SharedPreferences.getInstance() as SharedPreferences;
   @override
   void initState() {
     checkUserInterest().then((value) {
@@ -65,6 +65,9 @@ class _HomePageState extends State<HomePage> {
     });
     super.initState();
   }
+
+  TextEditingController searchController = TextEditingController();
+  FocusNode searchFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -82,11 +85,84 @@ class _HomePageState extends State<HomePage> {
         ],
         backgroundColor: Colors.blue[100],
         // centerTitle: true,
-        title: Text('Press Information Bureau',
-            style: TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-                fontFamily: GoogleFonts.roboto().fontFamily)),
+        title:  Row(
+          children: [
+            // SizedBox(
+            //   width: 20,
+            // ),
+            Container(
+              height: 38,
+              width: MediaQuery.of(context).size.width * 0.75,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Colors.grey[300],
+              ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(
+                      Icons.search,
+                      size: 20,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      cursorColor: Colors.black,
+                      focusNode: searchFocusNode,
+                      controller: searchController,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Search',
+                        hintStyle: TextStyle(
+                          fontSize: 17,
+                          color: Colors.black45,
+                          fontFamily: GoogleFonts.roboto().fontFamily,
+                        ),
+                      ),
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.black,
+                        fontFamily: GoogleFonts.roboto().fontFamily,
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          searchController.text = value;
+                          searchController.selection =
+                              TextSelection.fromPosition(TextPosition(
+                                  offset:
+                                      searchController.text.length));
+                        });
+                      },
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      searchController.clear();
+                      searchController.text = '';
+                      setState(() {});
+                    },
+                    icon: !searchController.text.isEmpty
+                        ? Icon(
+                      Icons.cancel,
+                      color: Colors.black,
+                    )
+                        : Icon(
+                      Icons.cancel,
+                      color: Colors.black45,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+          ],
+        ),
+        // Divider(
+        //   color: Colors.grey[300],
+        //   thickness: 1,
+        // ),
       ),
       backgroundColor: Colors.white,
       body: SafeArea(

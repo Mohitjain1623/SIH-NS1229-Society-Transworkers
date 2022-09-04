@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pib_project/pages/topnews.dart';
 
+import '../routes.dart';
 import '../util/staticDB.dart';
+import 'newsDetail.dart';
 
-class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+class Explore extends StatefulWidget {
+  const Explore({Key? key}) : super(key: key);
 
   @override
-  State<SearchPage> createState() => _SearchPageState();
+  State<Explore> createState() => _ExploreState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class _ExploreState extends State<Explore> {
   TextEditingController searchController = TextEditingController();
   FocusNode searchFocusNode = FocusNode();
 
@@ -20,6 +23,91 @@ class _SearchPageState extends State<SearchPage> {
     return SafeArea(
       top: true,
       child: Scaffold(
+        appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.notificationRoute);
+                },
+                icon: Icon(
+                  Icons.notifications_none_rounded,
+                  color: Colors.grey,
+                ))
+          ],
+          backgroundColor: Colors.blue[100],
+          title: Row(
+            children: [
+              // SizedBox(
+              //   width: 20,
+              // ),
+              Container(
+                height: 38,
+                width: MediaQuery.of(context).size.width * 0.75,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  color: Colors.grey[300],
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(
+                        Icons.search,
+                        size: 20,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Expanded(
+                      child: TextFormField(
+                        cursorColor: Colors.black,
+                        focusNode: searchFocusNode,
+                        controller: searchController,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Search',
+                          hintStyle: TextStyle(
+                            fontSize: 17,
+                            color: Colors.black45,
+                            fontFamily: GoogleFonts.roboto().fontFamily,
+                          ),
+                        ),
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: Colors.black,
+                          fontFamily: GoogleFonts.roboto().fontFamily,
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            searchController.text = value;
+                            searchController.selection =
+                                TextSelection.fromPosition(TextPosition(
+                                    offset: searchController.text.length));
+                          });
+                        },
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        searchController.clear();
+                        searchController.text = '';
+                        setState(() {});
+                      },
+                      icon: !searchController.text.isEmpty
+                          ? Icon(
+                              Icons.cancel,
+                              color: Colors.black,
+                            )
+                          : Icon(
+                              Icons.cancel,
+                              color: Colors.black45,
+                            ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
         body: Column(
           children: [
             Padding(padding: EdgeInsets.only(top: 5)),
@@ -108,6 +196,45 @@ class _SearchPageState extends State<SearchPage> {
             //   thickness: 1,
             // ),
 
+            MasonryGridView.count(
+                crossAxisCount: 2,
+                scrollDirection: Axis.vertical,
+                physics: const BouncingScrollPhysics(),
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(left: 15),
+                itemCount: StaticDB.explore['explore'].length,
+                itemBuilder: (context, int index) {
+                  return InkWell(
+                    onTap: () {
+                      if (index == 1) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => NewsDetail(
+                                  index: 0,
+                                  type:
+                                      "https://syndication.twitter.com/srv/timeline-profile/screen-name/PIBFactCheck?dnt=false&embedId=twitter-widget-2&frame=false&lang=en&origin=https%3A%2F%2Fmib.gov.in%2F&sessionId=2aa9c03d50b71c24ddc9c2ea78c4c89975cfe8d6&showHeader=true&showReplies=false&widgetsVersion=31f0cdc1eaa0f%3A1660602114609"),
+                            ));
+                      }
+                    },
+                    child: SizedBox(
+                      height: 120.0,
+                      width: 50.0,
+                      child: Card(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(Icons.star, color: Colors.blue, size: 70.0),
+                            Text(
+                              StaticDB.explore['explore'][index]['title'],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+
             Container(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -146,7 +273,7 @@ class _SearchPageState extends State<SearchPage> {
               //   ),
               // ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.8075,
+                height: MediaQuery.of(context).size.height * 0.43,
                 child: Stack(children: <Widget>[
                   ListView.builder(
                       scrollDirection: Axis.vertical,
@@ -190,27 +317,32 @@ class _SearchPageState extends State<SearchPage> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: SizedBox(
-                                      height: MediaQuery.of(context).size.height * 0.2,
-                                      width: MediaQuery.of(context).size.width * 0.2,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.2,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.2,
                                       child: Image.network(
-                                        StaticDB.ministryImage['Ministry'][index]
-                                            ['imageURL'],
+                                        StaticDB.ministryImage['Ministry']
+                                            [index]['imageURL'],
                                       ),
                                     ),
                                   ),
                                   Container(
-                                    width: MediaQuery.of(context).size.width*0.5,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.5,
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        StaticDB.releaseAug.keys.elementAt(index),
+                                        StaticDB.releaseAug.keys
+                                            .elementAt(index),
                                         softWrap: true,
                                         overflow: TextOverflow.ellipsis,
                                         maxLines: 3,
                                         style: TextStyle(
                                             fontSize: 16,
-                                            fontFamily:
-                                                GoogleFonts.roboto().fontFamily),
+                                            fontFamily: GoogleFonts.roboto()
+                                                .fontFamily),
                                       ),
                                     ),
                                   ),

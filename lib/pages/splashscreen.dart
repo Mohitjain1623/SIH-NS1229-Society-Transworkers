@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pib_project/pages/languagepage.dart';
 import 'package:pib_project/routes.dart';
 import 'package:pib_project/util/dashboard.dart';
 import 'package:pib_project/util/staticDB.dart';
@@ -57,7 +58,8 @@ class _SplashScreenState extends State<SplashScreen> {
     xml2Json.parse(body);
     var jsonString = xml2Json.toParker();
     rss[i] = json.decode(jsonString);
-    Constants.setRssFeed(true, rss, i, StaticDB.langImage['langImage'][i]['title']);
+    Constants.setRssFeed(
+        true, rss, i, StaticDB.langImage['langImage'][i]['title']);
   }
 
   @override
@@ -74,10 +76,15 @@ class _SplashScreenState extends State<SplashScreen> {
       } else {
         Future.delayed(
             Duration(seconds: 3),
-            () => Navigator.pushReplacementNamed(
-                  context,
-                  MyRoutes.loginRoute,
-                ));
+            () => Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => LanguagePage(
+                  start: true
+                )))
+            // Navigator.pushReplacementNamed(
+            //   context,
+            //   MyRoutes.loginRoute,
+            // )
+            );
       }
     });
   }
@@ -85,23 +92,32 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       body: Center(
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.45,
             ),
-            Image.asset('assets/pib-logo.png', width: 200, height: 200),
+            // Image.asset('assets/pib-logo.png', width: 200, height: 200),
+            Text('PRESS INFORMATION BUREAU',
+                style: TextStyle(
+                  color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: GoogleFonts.oswald().fontFamily)),
+            Text('GOVERNMENT OF INDIA',
+                style: TextStyle(
+                  color: Colors.yellow,
+                    fontSize: 22,
+                    fontWeight:  FontWeight.normal,
+                    fontFamily: GoogleFonts.oswald().fontFamily)),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.3,
             ),
             // Image.asset(
             //     'assets/aazadi-ka-mahotsav.png', width: 80, height: 80),
-            Text('Press Information Bureau',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: GoogleFonts.roboto().fontFamily)),
+
           ],
         ),
       ),

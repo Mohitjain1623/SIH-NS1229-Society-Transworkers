@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.signupRoute: (context) => SignUpPage(),
         MyRoutes.notificationRoute: (context) => NotificationPage(),
-        MyRoutes.searchRoute: (context) => SearchPage(),
+        MyRoutes.searchRoute: (context) => Explore(),
         MyRoutes.accountRoute: (context) => AccountPage(),
         // MyRoutes.topnewsRoute: (context) => TopNews(),
       },

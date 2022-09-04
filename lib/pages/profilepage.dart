@@ -119,7 +119,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   padding: const EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LanguagePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LanguagePage(start: false,)));
                     },
                     child: Container(
                       decoration: BoxDecoration(

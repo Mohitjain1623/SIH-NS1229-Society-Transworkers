@@ -54,7 +54,7 @@ class DashBoardState extends State<DashBoard> {
           borderRadius: BorderRadius.circular(50),
         ),
         child: ListView.builder(
-          itemCount: 4,
+          itemCount: 3,
           scrollDirection: Axis.horizontal,
           padding: EdgeInsets.symmetric(horizontal: displayWidth * .02),
           itemBuilder: (context, index) => InkWell(
@@ -62,7 +62,7 @@ class DashBoardState extends State<DashBoard> {
               setState(() {
                 _selectedIndex = index;
                 currentIndex = index;
-                HapticFeedback.lightImpact();
+                HapticFeedback.heavyImpact();
               });
             },
             splashColor: Colors.transparent,
@@ -73,14 +73,14 @@ class DashBoardState extends State<DashBoard> {
                   duration: Duration(seconds: 1),
                   curve: Curves.fastLinearToSlowEaseIn,
                   width: index == currentIndex
-                      ? displayWidth * .32
-                      : displayWidth * .18,
+                      ? displayWidth * .35
+                      : displayWidth * .29,
                   alignment: Alignment.center,
                   child: AnimatedContainer(
                     duration: Duration(seconds: 1),
                     curve: Curves.fastLinearToSlowEaseIn,
                     height: index == currentIndex ? displayWidth * .12 : 0,
-                    width: index == currentIndex ? displayWidth * .32 : 0,
+                    width: index == currentIndex ? displayWidth * .4 : 0,
                     decoration: BoxDecoration(
                       color: index == currentIndex
                           ? Colors.blueAccent.withOpacity(.2)
@@ -104,7 +104,7 @@ class DashBoardState extends State<DashBoard> {
                             duration: Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
                             width:
-                                index == currentIndex ? displayWidth * .13 : 0,
+                                index == currentIndex ? displayWidth * .12 : 0,
                           ),
                           AnimatedOpacity(
                             opacity: index == currentIndex ? 1 : 0,
@@ -117,7 +117,7 @@ class DashBoardState extends State<DashBoard> {
                               style: TextStyle(
                                 color: Colors.blueAccent,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 15,
+                                fontSize: 12,
                               ),
                             ),
                           ),
@@ -153,25 +153,26 @@ class DashBoardState extends State<DashBoard> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    SearchPage(),
-    NewsDetail(
-        index: 0,
-        type:
-            "https://syndication.twitter.com/srv/timeline-profile/screen-name/PIBFactCheck?dnt=false&embedId=twitter-widget-2&frame=false&lang=en&origin=https%3A%2F%2Fmib.gov.in%2F&sessionId=2aa9c03d50b71c24ddc9c2ea78c4c89975cfe8d6&showHeader=true&showReplies=false&widgetsVersion=31f0cdc1eaa0f%3A1660602114609"),
+    Explore(),
+    // NewsDetail(
+    //     index: 0,
+    //     type:
+    //         "https://syndication.twitter.com/srv/timeline-profile/screen-name/PIBFactCheck?dnt=false&embedId=twitter-widget-2&frame=false&lang=en&origin=https%3A%2F%2Fmib.gov.in%2F&sessionId=2aa9c03d50b71c24ddc9c2ea78c4c89975cfe8d6&showHeader=true&showReplies=false&widgetsVersion=31f0cdc1eaa0f%3A1660602114609"),
     ProfilePage(),
   ];
 
   List<IconData> listOfIcons = [
     Icons.home_rounded,
-    Icons.account_balance_rounded,
-    Icons.fact_check_outlined,
+    Icons.explore,
+    // Icons.account_balance_rounded,
+    // Icons.fact_check_outlined,
     Icons.person_rounded,
   ];
 
   List<String> listOfStrings = [
     'Home',
-    'Ministry',
-    'Fact\nCheck',
+    'Explore',
+    // 'Fact\nCheck',
     'Account',
   ];
 }

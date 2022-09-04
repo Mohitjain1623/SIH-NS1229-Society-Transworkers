@@ -4625,4 +4625,20 @@ class StaticDB {
       }
     ]
   };
+
+  static final Map explore = {
+    "explore": [
+      {
+        "title": "Research Unit",
+      },
+      {
+        "title": "Fact Check",
+      },
+      {
+        "title": "Full Releases",
+      },
+      {
+        "title": "Events",
+      }]
+  };
 }
