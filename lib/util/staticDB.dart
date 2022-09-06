@@ -4635,7 +4635,7 @@ class StaticDB {
         "title": "Fact Check",
       },
       {
-        "title": "Full Releases",
+        "title": "Top Releases",
       },
       {
         "title": "Events",

@@ -46,6 +46,8 @@ dependencies:
   firebase_messaging: ^11.1.0
   firebase_analytics: ^9.1.0
   xml2json: ^5.3.2
+  tiktoklikescroller: ^0.2.3
+  share_plus: ^4.1.0
 
 dev_dependencies:
   flutter_test:
