@@ -115,6 +115,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.3,
             ),
+            CircularProgressIndicator(color: Colors.white,)
             // Image.asset(
             //     'assets/aazadi-ka-mahotsav.png', width: 80, height: 80),
 
