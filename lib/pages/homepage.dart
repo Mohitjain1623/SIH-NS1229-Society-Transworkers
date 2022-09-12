@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:card_swiper/card_swiper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -10,10 +11,8 @@ import 'package:pib_project/pages/bookletdetailpage.dart';
 import 'package:pib_project/pages/imagepage.dart';
 import 'package:pib_project/pages/topnews.dart';
 import 'package:pib_project/routes.dart';
-import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tiktoklikescroller/tiktoklikescroller.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 import 'package:webview_flutter/webview_flutter.dart';
@@ -21,6 +20,7 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../util/showimage.dart';
 import '../util/staticDB.dart';
 import 'newsDetail.dart';
+import 'dart:math' as math;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -60,17 +60,29 @@ checkUserLanguage() async {
   }
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   bool isSearching = false;
-  get controller => null;
+
+  // get controller => null;
+  late AnimationController _controller;
+  PageController controller = PageController();
+  static dynamic currentPageValue = 0.0;
 
   // SharedPreferences prefs = SharedPreferences.getInstance() as SharedPreferences;
   @override
   void initState() {
-    final Controller controller = Controller()
-      ..addListener((event) {
-        // _handleCallbackEvent(event.direction, event.success);
+    _controller = AnimationController(
+      duration: const Duration(seconds: 8),
+      vsync: this,
+    )..repeat();
+
+    controller.addListener(() {
+      setState(() {
+        currentPageValue = controller;
       });
+    });
+
     checkUserInterest().then((value) {
       setState(() {});
     });
@@ -82,10 +94,10 @@ class _HomePageState extends State<HomePage> {
 
   TextEditingController searchController = TextEditingController();
   FocusNode searchFocusNode = FocusNode();
+  double opacity = 1;
 
   @override
   Widget build(BuildContext context) {
-    PageController _pageController = PageController(initialPage: 0);
     PageController _searchPageController = PageController();
     // final provider = Provider.of<FeedProvider>(context, listen: false);
     // provider.setfeedPageController(_pageController);
@@ -96,23 +108,22 @@ class _HomePageState extends State<HomePage> {
         actions: [
           isSearching
               ? IconButton(
-            icon: Icon(Icons.cancel),
-            onPressed: () {
-              setState(() {
-                this.isSearching = false;
-                // filteredCountries = countries;
-              });
-            },
-          )
+                  icon: Icon(Icons.cancel),
+                  onPressed: () {
+                    setState(() {
+                      this.isSearching = false;
+                      // filteredCountries = countries;
+                    });
+                  },
+                )
               : IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              setState(() {
-                this.isSearching = true;
-              });
-            },
-          )
-
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    setState(() {
+                      this.isSearching = true;
+                    });
+                  },
+                )
         ],
         // actions: [
         //   IconButton(
@@ -203,162 +214,286 @@ class _HomePageState extends State<HomePage> {
         //   thickness: 1,
         // ),
         title: !isSearching
-            ? Text('Press Information Bureau',style: TextStyle(color: Colors.grey),)
+            ? Text(
+                'Press Information Bureau',
+                style: TextStyle(color: Colors.grey),
+              )
             : TextField(
-          onChanged: (value) {
-            // _filterCountries(value);
-          },
-          style: TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-              icon: Icon(
-                Icons.search,
-                color: Colors.white,
+                onChanged: (value) {
+                  // _filterCountries(value);
+                },
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                    hintText: "Search",
+                    hintStyle: TextStyle(color: Colors.white)),
               ),
-              hintText: "Search",
-              hintStyle: TextStyle(color: Colors.white)),
-        ),
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
-        top: true,
-        bottom: true,
-        left: true,
-        right: true,
-        child: PageView(
-          onPageChanged: (page) {
-            // if (page >=
-            //     StaticDB.pressRelease['rss']['channel'][language]['item']
-            //         .length) {
-            //   provider.setSearchAppBarVisible(false);
-            //   provider.setAppBarVisible(false);
-            // } else {
-            //   provider.setSearchAppBarVisible(true);
-            //   provider.setAppBarVisible(true);
-            // }
-            // lastPage = page;
-            // provider.setCurentArticalIndex(page);
-            // provider.setFeedBottomActionbarVisible(false);
-          },
-          controller: _pageController,
-          children: [
-            PageView.builder(
-              itemCount: StaticDB
-                  .pressRelease['rss']['channel'][language]['item'].length,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (BuildContext context, int index) {
-                return Center(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => NewsDetail(
-                                    index: index,
-                                    type: StaticDB.pressRelease['rss']
-                                        ['channel'][language]['language'],
-                                  )));
-                    },
-                    child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: Colors.white,
-                        ),
-                        padding: EdgeInsets.all(30.0),
-                        height: MediaQuery.of(context).size.height * 0.75,
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        // color: Colors.white,
-                        child:
-                        // Consumer<FeedProvider>(
-                        //   builder: (context, value, child) {
-                        //     return
-                              Center(
-                              child: Column(
-                                children: [
-                                  Image.asset('assets/aazadi-ka-mahotsav.png',
-                                      width: 250, height: 250),
-                                  Divider(height: 5, thickness: 2),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 20.0),
-                                    child: Text(
-                                      StaticDB.pressRelease['rss']['channel']
-                                          [language]['item'][index]['title'],
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily:
-                                            GoogleFonts.roboto().fontFamily,
-                                      ),
+          child:
+              // AnimatedBuilder(
+              //   animation: _controller,
+              //   // ^ registering our own function to listen to page changes
+              //   builder: (BuildContext context, Widget? child) {
+              //     return
+              Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(1), color: Colors.black),
+        child: Swiper(
+            viewportFraction: 1,
+            scale: 0.7,
+            fade: 0.5,
+            loop: false,
+            scrollDirection: Axis.vertical,
+            itemCount: StaticDB
+                .pressRelease['rss']['channel'][language]['item'].length,
+            itemBuilder: (context, int index) {
+              return Center(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NewsDetail(
+                                  index: index,
+                                  type: StaticDB.pressRelease['rss']['channel']
+                                      [language]['language'],
+                                )));
+                  },
+                  child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                      ),
+                      padding: EdgeInsets.all(30.0),
+                      height: MediaQuery.of(context).size.height * 0.79,
+                      width: MediaQuery.of(context).size.width,
+                      // color: Colors.white,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: Colors.blueAccent,
+                                  ),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => NewsDetail(
+                                                    index: index,
+                                                    type: StaticDB.pressRelease[
+                                                            'rss']['channel']
+                                                        [language]['language'],
+                                                  )));
+                                    },
+                                    icon: Icon(
+                                      Icons.open_in_new,
+                                      color: Colors.white,
                                     ),
                                   ),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        width: 100,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(25),
-                                          color: Colors.blueAccent,
-                                        ),
-                                        child: IconButton(
-                                          onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        NewsDetail(
-                                                          index: index,
-                                                          type: StaticDB.pressRelease[
-                                                                          'rss']
-                                                                      ['channel']
-                                                                  [language]
-                                                              ['language'],
-                                                        )));
-                                          },
-                                          icon: Icon(
-                                            Icons.open_in_new,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: MediaQuery.of(context).size.width *
-                                            0.17,
-                                      ),
-                                      Container(
-                                        width: 100,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(25),
-                                          color: Colors.blueAccent,
-                                        ),
-                                        child: IconButton(
-                                          onPressed: () {
-                                            shareProduct(
-                                                StaticDB.pressRelease['rss']
-                                                        ['channel'][language]
-                                                    ['item'][index]['link']);
-                                            setState(() {});
-                                          },
-                                          icon: Icon(
-                                            Icons.share,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ],
+                                ),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: Colors.blueAccent,
+                                  ),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      shareProduct(StaticDB.pressRelease['rss']
+                                              ['channel'][language]['item']
+                                          [index]['link']);
+                                      setState(() {});
+                                    },
+                                    icon: Icon(
+                                      Icons.share,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Image.asset('assets/aazadi-ka-mahotsav.png',
+                                width: 250, height: 250),
+                            Divider(height: 5, thickness: 2),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20.0),
+                              child: Text(
+                                StaticDB.pressRelease['rss']['channel']
+                                    [language]['item'][index]['title'],
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: GoogleFonts.roboto().fontFamily,
+                                ),
                               ),
-                            )
-                        //   }
-                        // )
-                    ),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
-      ),
+                            ),
+                          ],
+                        ),
+                      )),
+                ),
+              );
+            }),
+      )
+          //   },
+          // )
+          // AnimatedBuilder(
+          //     animation: _controller,
+          //     child: PageView(
+          //       onPageChanged: (page) {
+          //         setState(() => ({
+          //           opacity = 2.0*opacity
+          //         }));
+          //       },
+          //       controller: _pageController,
+          //       children: [
+          //         PageView.builder(
+          //           itemCount: StaticDB
+          //               .pressRelease['rss']['channel'][language]['item'].length,
+          //           scrollDirection: Axis.vertical,
+          //           itemBuilder: (BuildContext context, int index) {
+          //             return Container(
+          //               decoration: BoxDecoration(
+          //                 color: Colors.white.withOpacity(opacity),
+          //               ),
+          //               child: Center(
+          //                 child: InkWell(
+          //                   onTap: () {
+          //                     Navigator.push(
+          //                         context,
+          //                         MaterialPageRoute(
+          //                             builder: (context) => NewsDetail(
+          //                                   index: index,
+          //                                   type: StaticDB.pressRelease['rss']
+          //                                       ['channel'][language]['language'],
+          //                                 )));
+          //                   },
+          //                   child: Container(
+          //                       decoration: BoxDecoration(
+          //                         borderRadius: BorderRadius.circular(25),
+          //                         color: Colors.white,
+          //                       ),
+          //                       padding: EdgeInsets.all(30.0),
+          //                       height: MediaQuery.of(context).size.height * 0.75,
+          //                       width: MediaQuery.of(context).size.width * 0.9,
+          //                       // color: Colors.white,
+          //                       child:
+          //                           // Consumer<FeedProvider>(
+          //                           //   builder: (context, value, child) {
+          //                           //     return
+          //                           Center(
+          //                         child: Column(
+          //                           children: [
+          //                             Image.asset('assets/aazadi-ka-mahotsav.png',
+          //                                 width: 250, height: 250),
+          //                             Divider(height: 5, thickness: 2),
+          //                             Padding(
+          //                               padding: const EdgeInsets.only(top: 20.0),
+          //                               child: Text(
+          //                                 StaticDB.pressRelease['rss']['channel']
+          //                                     [language]['item'][index]['title'],
+          //                                 style: TextStyle(
+          //                                   color: Colors.black,
+          //                                   fontSize: 20,
+          //                                   fontWeight: FontWeight.bold,
+          //                                   fontFamily:
+          //                                       GoogleFonts.roboto().fontFamily,
+          //                                 ),
+          //                               ),
+          //                             ),
+          //                             Row(
+          //                               children: [
+          //                                 Container(
+          //                                   width: 100,
+          //                                   decoration: BoxDecoration(
+          //                                     borderRadius:
+          //                                         BorderRadius.circular(25),
+          //                                     color: Colors.blueAccent,
+          //                                   ),
+          //                                   child: IconButton(
+          //                                     onPressed: () {
+          //                                       Navigator.push(
+          //                                           context,
+          //                                           MaterialPageRoute(
+          //                                               builder: (context) =>
+          //                                                   NewsDetail(
+          //                                                     index: index,
+          //                                                     type: StaticDB.pressRelease[
+          //                                                                     'rss']
+          //                                                                 [
+          //                                                                 'channel']
+          //                                                             [language]
+          //                                                         ['language'],
+          //                                                   )));
+          //                                     },
+          //                                     icon: Icon(
+          //                                       Icons.open_in_new,
+          //                                       color: Colors.white,
+          //                                     ),
+          //                                   ),
+          //                                 ),
+          //                                 SizedBox(
+          //                                   width: MediaQuery.of(context)
+          //                                           .size
+          //                                           .width *
+          //                                       0.17,
+          //                                 ),
+          //                                 Container(
+          //                                   width: 100,
+          //                                   decoration: BoxDecoration(
+          //                                     borderRadius:
+          //                                         BorderRadius.circular(25),
+          //                                     color: Colors.blueAccent,
+          //                                   ),
+          //                                   child: IconButton(
+          //                                     onPressed: () {
+          //                                       shareProduct(
+          //                                           StaticDB.pressRelease['rss']
+          //                                                   ['channel'][language]
+          //                                               ['item'][index]['link']);
+          //                                       setState(() {});
+          //                                     },
+          //                                     icon: Icon(
+          //                                       Icons.share,
+          //                                       color: Colors.white,
+          //                                     ),
+          //                                   ),
+          //                                 )
+          //                               ],
+          //                             )
+          //                           ],
+          //                         ),
+          //                       )
+          //                       //   }
+          //                       // )
+          //                       ),
+          //                 ),
+          //               ),
+          //             );
+          //           },
+          //         )
+          //       ],
+          //     ),
+          //     builder: (BuildContext context, Widget? child) {
+          //       return Transform.translate(
+          //         offset: Offset(opacity, 0),
+          //         child: child,
+          //       );
+          //     }),
+          ),
       //   ),
     );
   }
