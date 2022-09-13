@@ -166,7 +166,7 @@ class DashBoardState extends State<DashBoard> {
     Icons.explore,
     // Icons.account_balance_rounded,
     // Icons.fact_check_outlined,
-    Icons.person_rounded,
+    Icons.bookmark,
   ];
 
   List<String> listOfStrings = [

@@ -11,6 +11,7 @@ import 'package:pib_project/pages/bookletdetailpage.dart';
 import 'package:pib_project/pages/imagepage.dart';
 import 'package:pib_project/pages/topnews.dart';
 import 'package:pib_project/routes.dart';
+import 'package:progressive_image/progressive_image.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -116,13 +117,29 @@ class _HomePageState extends State<HomePage>
                     });
                   },
                 )
-              : IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {
-                    setState(() {
-                      this.isSearching = true;
-                    });
-                  },
+              : Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.search,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          this.isSearching = true;
+                        });
+                      },
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, MyRoutes.notificationRoute);
+                        },
+                        icon: Icon(
+                          Icons.notifications_none_rounded,
+                          color: Colors.grey,
+                        ))
+                  ],
                 )
         ],
         // actions: [
@@ -218,18 +235,18 @@ class _HomePageState extends State<HomePage>
                 'Press Information Bureau',
                 style: TextStyle(color: Colors.grey),
               )
-            : TextField(
+            : TextFormField(
                 onChanged: (value) {
                   // _filterCountries(value);
                 },
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.grey),
                 decoration: InputDecoration(
                     icon: Icon(
                       Icons.search,
                       color: Colors.white,
                     ),
                     hintText: "Search",
-                    hintStyle: TextStyle(color: Colors.white)),
+                    hintStyle: TextStyle(color: Colors.grey)),
               ),
       ),
       backgroundColor: Colors.white,
@@ -249,8 +266,8 @@ class _HomePageState extends State<HomePage>
             fade: 0.5,
             loop: false,
             scrollDirection: Axis.vertical,
-            itemCount: StaticDB
-                .pressRelease['rss']['channel'][language]['item'].length,
+            itemCount: StaticDB.releaseAug.keys.length,
+            // StaticDB.pressRelease['rss']['channel'][language]['item'].length,
             itemBuilder: (context, int index) {
               return Center(
                 child: InkWell(
@@ -259,10 +276,9 @@ class _HomePageState extends State<HomePage>
                         context,
                         MaterialPageRoute(
                             builder: (context) => NewsDetail(
-                                  index: index,
-                                  type: StaticDB.pressRelease['rss']['channel']
-                                      [language]['language'],
-                                )));
+                              index: index,
+                              type: StaticDB.pressRelease['rss']['channel'][language]['language'],
+                            )));
                   },
                   child: Container(
                       decoration: BoxDecoration(
@@ -275,7 +291,85 @@ class _HomePageState extends State<HomePage>
                       // color: Colors.white,
                       child: Center(
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            Column(
+                              children: [
+                                InkWell(
+                                  onTap: () => {showFullImage(index)},
+                                  child: ProgressiveImage(
+                                    placeholder: AssetImage(
+                                        'assets/aazadi-ka-mahotsav.png'),
+                                    // size: 1.87KB
+                                    thumbnail: NetworkImage(StaticDB
+                                        .images["images"][index]["imageURL"]),
+                                    // size: 1.29MB
+                                    image: NetworkImage(StaticDB
+                                        .images["images"][index]["imageURL"]),
+                                    height: 200,
+                                    width: 400,
+                                  ),
+                                  // Image.network(StaticDB.images["images"][index]["imageURL"],
+                                  //     width: 400, height: 200),
+                                ),
+                                Divider(height: 5, thickness: 2),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 20.0),
+                                  child: Text(
+                                    // StaticDB.releaseAug[StaticDB
+                                    //     .releaseAug.keys
+                                    //     .elementAt(index)]
+                                    // [0]['title'],
+                                    StaticDB.pressRelease['rss']['channel']
+                                        [language]['item'][index]['title'],
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily:
+                                          GoogleFonts.roboto().fontFamily,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 20.0),
+                                  child: Text(
+                                    StaticDB.releaseAug[StaticDB.releaseAug.keys
+                                                .elementAt(index)][0]['date']
+                                            .toString()
+                                            .split(":")
+                                            .last +
+                                        "  |  " +
+                                        StaticDB.releaseAug.keys
+                                            .elementAt(index),
+                                    // StaticDB.pressRelease['rss']['channel'][language]['item'][index]['title'],
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontFamily:
+                                          GoogleFonts.roboto().fontFamily,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 20.0),
+                                  child: Text(
+                                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit egestas dui id ornare arcu odio ut sem nulla. A diam sollicitudin tempor id eu nisl nunc mi ipsum. Aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus. Adipiscing elit pellentesque habitant morbi tristique. Non enim praesent elementum facilisis. Nisi vitae suscipit tellus mauris a diam maecenas sed. Egestas diam in arcu cursus. Tincidunt nunc pulvinar sapien et ligula. Nisi vitae suscipit tellus mauris a diam maecenas sed. Phasellus egestas tellus rutrum tellus pellentesque eu. Sit amet aliquam id diam maecenas. Posuere morbi leo urna molestie at. Egestas maecenas pharetra convallis posuere morbi leo urna molestie at. Tristique et egestas quis ipsum suspendisse ultrices gravida.",
+                                    // StaticDB.pressRelease['rss']['channel'][language]['item'][index]['title'],
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily:
+                                          GoogleFonts.roboto().fontFamily,
+                                    ),
+                                    maxLines: 7,
+                                    softWrap: true,
+                                  ),
+                                ),
+                              ],
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -286,18 +380,34 @@ class _HomePageState extends State<HomePage>
                                   ),
                                   child: IconButton(
                                     onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => NewsDetail(
-                                                    index: index,
-                                                    type: StaticDB.pressRelease[
-                                                            'rss']['channel']
-                                                        [language]['language'],
-                                                  )));
+                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                        content: Text('Coming Soon'),
+                                        backgroundColor: Colors.green,
+                                      ));
                                     },
                                     icon: Icon(
-                                      Icons.open_in_new,
+                                      Icons.volume_up_rounded,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: Colors.blueAccent,
+                                  ),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                        content: Text('Coming Soon'),
+                                        backgroundColor: Colors.green,
+                                      ));
+                                    },
+                                    icon: Icon(
+                                      Icons.bookmark,
                                       color: Colors.white,
                                     ),
                                   ),
@@ -324,22 +434,6 @@ class _HomePageState extends State<HomePage>
                                   ),
                                 )
                               ],
-                            ),
-                            Image.asset('assets/aazadi-ka-mahotsav.png',
-                                width: 250, height: 250),
-                            Divider(height: 5, thickness: 2),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 20.0),
-                              child: Text(
-                                StaticDB.pressRelease['rss']['channel']
-                                    [language]['item'][index]['title'],
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: GoogleFonts.roboto().fontFamily,
-                                ),
-                              ),
                             ),
                           ],
                         ),
@@ -517,33 +611,31 @@ class _HomePageState extends State<HomePage>
           return Dialog(
             elevation: 0,
             backgroundColor: Colors.transparent,
-            child: SizedBox(
-              height: double.infinity,
-              // height: MediaQuery.of(context).size.height / 1.2,
-              width: double.infinity,
-              // width: MediaQuery.of(context).size.width / 1.1,
-              child: Stack(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Stack(
-                        children: [
-                          Center(
-                            child: GestureDetector(
-                              onScaleStart: (ScaleStartDetails details) {
-                                _previousScale = _scale;
-                                setState(() {});
-                              },
-                              onScaleUpdate: (ScaleUpdateDetails details) {
-                                setState(() =>
-                                    _scale = _previousScale * details.scale);
-                              },
-                              onScaleEnd: (ScaleEndDetails details) {
-                                _previousScale = 0;
-                                setState(() {});
-                              },
+            child: Stack(
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Stack(
+                      children: [
+                        Center(
+                          child: GestureDetector(
+                            onScaleStart: (ScaleStartDetails details) {
+                              _previousScale = _scale;
+                              setState(() {});
+                            },
+                            onScaleUpdate: (ScaleUpdateDetails details) {
+                              setState(() =>
+                                  _scale = _previousScale * details.scale);
+                            },
+                            onScaleEnd: (ScaleEndDetails details) {
+                              _previousScale = 0;
+                              setState(() {});
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.9,
+                              height: MediaQuery.of(context).size.height * 0.89,
                               child: Transform(
                                 transform: Matrix4.diagonal3(
                                     vector.Vector3(_scale, _scale, _scale)),
@@ -561,107 +653,57 @@ class _HomePageState extends State<HomePage>
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Container(
-                                    height: 40,
-                                    width: 40,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white60,
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    child: const Icon(
-                                      Icons.cancel_outlined,
-                                      color: Colors.redAccent,
-                                      size: 30,
-                                    ),
+                        ),
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Container(
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white60,
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                  child: const Icon(
+                                    Icons.cancel_outlined,
+                                    color: Colors.redAccent,
+                                    size: 30,
                                   ),
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    _scale = 1.0;
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    height: 40,
-                                    width: 40,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white60,
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    child: const Icon(
-                                      Icons.refresh_outlined,
-                                      color: Colors.redAccent,
-                                      size: 30,
-                                    ),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  _scale = 1.0;
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white60,
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                  child: const Icon(
+                                    Icons.refresh_outlined,
+                                    color: Colors.redAccent,
+                                    size: 30,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  StaticDB.images.length <= 1
-                      ? Container()
-                      : Align(
-                          alignment: Alignment.centerLeft,
-                          child: InkWell(
-                            onTap: () {
-                              if (currentIndex != 0) {
-                                currentIndex = currentIndex - 1;
-                                setState(() {});
-                              }
-                            },
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                color: Colors.black54,
-                                borderRadius: BorderRadius.circular(50),
                               ),
-                              child: const Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                              ),
-                            ),
+                            ],
                           ),
                         ),
-                  StaticDB.images.length <= 1
-                      ? Container()
-                      : Align(
-                          alignment: Alignment.centerRight,
-                          child: InkWell(
-                            onTap: () {
-                              if (currentIndex != StaticDB.images.length - 1) {
-                                currentIndex = currentIndex + 1;
-                                setState(() {});
-                              }
-                            },
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                color: Colors.black54,
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              child: const Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                ],
-              ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
           );
         });

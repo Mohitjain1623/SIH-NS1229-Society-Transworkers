@@ -71,21 +71,24 @@ class _SplashScreenState extends State<SplashScreen> {
             Duration(seconds: 3),
             () => Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => DashBoard()),
+                  MaterialPageRoute(builder: (context) => LanguagePage(start: true)),
                 ));
       } else {
         Future.delayed(
             Duration(seconds: 3),
             () => Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => LanguagePage(
-                  start: true
-                )))
+                MaterialPageRoute(builder: (context) => DashBoard()))
             // Navigator.pushReplacementNamed(
             //   context,
             //   MyRoutes.loginRoute,
             // )
             );
       }
+      Constants.setUserData(
+        true,
+        "9999999999",
+        StaticDB.data["users"][0]["name"],
+      );
     });
   }
 
